@@ -1,7 +1,7 @@
     // =============================================
     // DATA SOP (15 steps) - untuk modal
     // =============================================
-    const stepData = {
+    const defaultSteps = {
         1: { title: 'Greeting & Sambutan', role: '👤 Kasir · Barista · Server', 
             sop: `<p><strong>Tujuan :</strong> Memberikan kesan pertama yang hangat dan profesional.</p><ul><li>Sapa segera setelah pelanggan membuka pintu.</li><li>Gunakan senyum dan kontak mata.</li><li>Tawarkan rekomendasi menu signature Nara.</li></ul>`, 
             script: `<div class="script-box"><p><span class="speaker">Kasir/Server/Barista :</span> "Selamat datang di Nara, Bapak/Ibu! Kami ada Mont Blanc dengan foam orange zest yang sedang populer. Mau saya bantu pilihkan menu?"</p></div>` },
@@ -52,7 +52,7 @@
     // =============================================
     // DATA MATERI LENGKAP (untuk tab 2-5)
     // =============================================
-    const materialData = {
+    const defaultMaterials = {
         // ----- HOSPITALITY -----
         'hospitality_golden': {
             title: 'Golden Rule',
