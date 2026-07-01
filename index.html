@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOH Training Module - Nara Curated Compound</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="document-wrapper">
+
+    <!-- ========================================================== -->
+    <!-- HALAMAN MATERI (SOP) -->
+    <!-- ========================================================== -->
+    <div class="sop-page" id="sopPage">
+
+        <!-- HEADER -->
+        <div class="header-doc">
+            <div class="brand-area">
+                <div class="logo-placeholder">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQGgtIM1qgfAMQ/profile-displayphoto-shrink_400_400/B4DZZsuJ.6HwAo-/0/1745580761606?e=2147483647&v=beta&t=wo9NmUZ9pZ7ef0b0Q7HMwqbDNBtkk8eBtha3bZMNjSg" 
+                         alt="Logo Perusahaan"
+                         onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'logo-text\'><br>LOGO<br>PERUSAHAAN</span>';">
+                </div>
+                <div class="brand-text">
+                    <h1>TRAINING MATERIAL</h1>
+                    <div class="title-main">Front of House (FOH) Training Module</div>
+                    <div class="title-sub">Service SOP, Hospitality &amp; Operational Excellence</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOP ACTIONS -->
+        <div class="top-actions">
+            <div class="concept-badge">✦ Nara Curated Compound · Bayar di Awal · Antar ke Meja</div>
+            <button class="btn-quiz-toggle" onclick="showQuiz()">📝 Ikuti Kuis</button>
+        </div>
+
+        <!-- INTRO -->
+        <div class="intro-grid">
+            <div class="col">
+                <div class="label">Tujuan Training</div>
+                <div class="value">Membekali seluruh crew FOH Nara dengan pengetahuan dan keterampilan—mulai dari standar prosedur operasional, hospitality khas Nara, keamanan pangan, kebersihan area, hingga penanganan komplain—untuk menciptakan pengalaman pelanggan yang konsisten dan berkelas.</div>
+            </div>
+            <div class="col">
+                <div class="label">Ruang Lingkup</div>
+                <div class="value">FOH (Kasir, Server, Host), Tim Produksi (Barista & Kitchen), area Indoor, Outdoor, Komunal, dan 2 toilet.</div>
+            </div>
+        </div>
+
+        <!-- ===== TAB NAVIGASI ===== -->
+        <div class="main-tabs">
+            <button class="main-tab-btn active" data-tab="tabSOP" onclick="switchMainTab('tabSOP')">1. SOP Alur</button>
+            <button class="main-tab-btn" data-tab="tabHospitality" onclick="switchMainTab('tabHospitality')">2. Hospitality</button>
+            <button class="main-tab-btn" data-tab="tabFoodSafety" onclick="switchMainTab('tabFoodSafety')">3. Food Safety</button>
+            <button class="main-tab-btn" data-tab="tabCleaning" onclick="switchMainTab('tabCleaning')">4. Cleaning</button>
+            <button class="main-tab-btn" data-tab="tabComplaint" onclick="switchMainTab('tabComplaint')">5. Komplain</button>
+        </div>
+
+        <!-- ========================================================== -->
+        <!-- TAB 1 : SOP Alur -->
+        <!-- ========================================================== -->
+        <div class="main-tab-content active" id="tabSOP">
+            <div class="job-legend">
+                <span class="legend-title">📋 LEGEND JOBDESK :</span>
+                <span class="legend-item"><span class="legend-color lc-cashier"></span> Cashier (1-6)</span>
+                <span class="legend-item"><span class="legend-color lc-customer"></span> Customer (7)</span>
+                <span class="legend-item"><span class="legend-color lc-production"></span> Production (8)</span>
+                <span class="legend-item"><span class="legend-color lc-server"></span> Server (9-15)</span>
+            </div>
+
+            <div class="section-title">Alur Layanan Operasional Nara</div>
+            <div class="section-desc">Setiap tahapan wajib dilaksanakan secara <strong>konsisten</strong>. Klik pada card untuk melihat SOP lengkap dan script komunikasi.</div>
+
+            <!-- Step 1 -->
+            <div class="step-card group-cashier" onclick="openModal(1)">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <div class="title-step">Greeting &amp; Sambutan</div>
+                    <div class="desc-step">Sapa pelanggan <strong>segera setelah membuka pintu</strong>. Tawarkan rekomendasi menu signature: Mont Blanc, Butterscotch Sea Salt Latte, atau Ramen.</div>
+                    <div class="role-tag-group">
+                        <span class="role-tag role-tag-cashier">👤 Kasir</span>
+                        <span class="role-tag role-tag-barista">👤 Barista</span>
+                        <span class="role-tag role-tag-server">👤 Server</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="step-card group-cashier" onclick="openModal(2)">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <div class="title-step">Edukasi Menu</div>
+                    <div class="desc-step">Jelaskan <strong>Mont Blanc</strong> (foam orange zest), <strong>Butterscotch</strong> (foam seasalt + caramel crumble), <strong>Ramen</strong> (kuah/dry, topping Chasu/Beef/Katsu), Bolen, dan Roti Bakar.</div>
+                    <span class="role-tag role-tag-single">👤 Kasir</span>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="step-card group-cashier" onclick="openModal(3)">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <div class="title-step">Upselling</div>
+                    <div class="desc-step">Tawarkan <strong>extra shot</strong> atau <strong>upgrade blend</strong> (Full Arabica / Single Origin) dengan biaya tambahan. Rekomendasikan Bolen/Roti Bakar sebagai pendamping.</div>
+                    <span class="role-tag role-tag-single">👤 Kasir</span>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="step-card group-cashier" onclick="openModal(4)">
+                <div class="step-number">04</div>
+                <div class="step-content">
+                    <div class="title-step">Konfirmasi Pemesanan</div>
+                    <div class="desc-step">Ulangi (<em>readback</em>) pesanan: varian kopi, tingkat manis, pilihan blend, extra shot, jenis Ramen (kuah/dry + topping).</div>
+                    <span class="role-tag role-tag-single">👤 Kasir</span>
+                </div>
+            </div>
+            <!-- Step 5 -->
+            <div class="step-card group-cashier" onclick="openModal(5)">
+                <div class="step-number">05</div>
+                <div class="step-content">
+                    <div class="title-step">Pembayaran di Awal</div>
+                    <div class="desc-step">Pelanggan membayar penuh (Cash / QRIS / EDC). Cetak <strong>struk</strong> dan siapkan <strong>nomor meja</strong>.</div>
+                    <span class="role-tag role-tag-single">👤 Kasir</span>
+                </div>
+            </div>
+            <!-- Step 6 -->
+            <div class="step-card group-cashier" onclick="openModal(6)">
+                <div class="step-number">06</div>
+                <div class="step-content">
+                    <div class="title-step">Penyerahan Bill &amp; Nomor Meja</div>
+                    <div class="desc-step">Berikan struk dan nomor meja. Informasikan pesanan akan <strong>diantar ke meja</strong> (dine-in) atau <strong>dibungkus di kasir</strong> (take away).</div>
+                    <span class="role-tag role-tag-single">👤 Kasir</span>
+                </div>
+            </div>
+            <!-- Step 7 -->
+            <div class="step-card group-customer" onclick="openModal(7)">
+                <div class="step-number">07</div>
+                <div class="step-content">
+                    <div class="title-step">Pelanggan Duduk &amp; Display Nomor Meja</div>
+                    <div class="desc-step">Pelanggan memilih meja (Indoor/Outdoor/Komunal) dan menaruh nomor meja di tempat yang mudah terlihat.</div>
+                    <span class="role-tag role-tag-single">👤 Customer Journey</span>
+                </div>
+            </div>
+            <!-- Step 8 -->
+            <div class="step-card group-production" onclick="openModal(8)">
+                <div class="step-number">08</div>
+                <div class="step-content">
+                    <div class="title-step">Produksi</div>
+                    <div class="desc-step">Barista membuat Mont Blanc (foam rapih, layering jelas, taburan orange zest) & Butterscotch. Kitchen menyiapkan Ramen. <strong>Mont Blanc wajib diantar dalam 3 menit</strong>.</div>
+                    <span class="role-tag role-tag-single">👤 Production</span>
+                </div>
+            </div>
+            <!-- Step 9 -->
+            <div class="step-card group-server" onclick="openModal(9)">
+                <div class="step-number">09</div>
+                <div class="step-content">
+                    <div class="title-step">Quality Check</div>
+                    <div class="desc-step">Periksa tampilan Mont Blanc (foam sempurna, layering jelas), Butterscotch (foam seasalt, crumble), dan Ramen (kuah/dry, topping sesuai).</div>
+                    <span class="role-tag role-tag-single">👤 Server</span>
+                </div>
+            </div>
+            <!-- Step 10 -->
+            <div class="step-card group-server" onclick="openModal(10)">
+                <div class="step-number">10</div>
+                <div class="step-content">
+                    <div class="title-step">Persiapan Cutleries</div>
+                    <div class="desc-step">Siapkan sendok, garpu, sumpit (Ramen), serbet, dan tisu di atas <em>service tray</em>.</div>
+                    <span class="role-tag role-tag-single">👤 Server</span>
+                </div>
+            </div>
+            <!-- Step 11 -->
+            <div class="step-card group-server" onclick="openModal(11)">
+                <div class="step-number">11</div>
+                <div class="step-content">
+                    <div class="title-step">Pengantaran Pesanan</div>
+                    <div class="desc-step">Antar sesuai nomor meja. Untuk Mont Blanc: <strong>"Ini Mont Blanc-nya, mohon segera dinikmati agar foam tetap sempurna."</strong> Untuk Ramen: <strong>"Ini Ramen-nya, masih panas, hati-hati ya."</strong></div>
+                    <span class="role-tag role-tag-single">👤 Server</span>
+                </div>
+            </div>
+            <!-- Step 12 -->
+            <div class="step-card group-server" onclick="openModal(12)">
+                <div class="step-number">12</div>
+                <div class="step-content">
+                    <div class="title-step">Floor Patrol</div>
+                    <div class="desc-step">Inspeksi rutin ke seluruh area (Indoor, Outdoor, Komunal). Cek meja kotor, tumpahan, sampah, dan toilet.</div>
+                    <span class="role-tag role-tag-single">👤 Server</span>
+                </div>
+            </div>
+            <!-- Step 13 -->
+            <div class="step-card group-server" onclick="openModal(13)">
+                <div class="step-number">13</div>
+                <div class="step-content">
+                    <div class="title-step">Bussing (Clearance) Meja</div>
+                    <div class="desc-step">Buang sisa makanan ke <em>trash bin</em>, bawa piring/gelas kotor ke <strong>scullery</strong>. Lakukan <strong>clear-as-you-go</strong>.</div>
+                    <span class="role-tag role-tag-single">👤 Server</span>
+                </div>
+            </div>
+            <!-- Step 14 -->
+            <div class="step-card group-server" onclick="openModal(14)">
+                <div class="step-number">14</div>
+                <div class="step-content">
+                    <div class="title-step">Deteksi Kepergian Pelanggan</div>
+                    <div class="desc-step">Scan area setiap 3-5 menit. Indikator: pelanggan berdiri, merapikan barang, atau struk di meja. Ucapkan <strong>"Terima kasih, sampai jumpa kembali di Nara!"</strong></div>
+                    <span class="role-tag role-tag-single">👤 Server / FOH</span>
+                </div>
+            </div>
+            <!-- Step 15 -->
+            <div class="step-card group-server" onclick="openModal(15)">
+                <div class="step-number">15</div>
+                <div class="step-content">
+                    <div class="title-step">Reset Meja (Turnaround)</div>
+                    <div class="desc-step">Sanitasi meja & kursi dengan <em>food-grade sanitizer</em>, reset peralatan makan. Target maksimal <strong>2 menit</strong>.</div>
+                    <span class="role-tag role-tag-single">👤 Server</span>
+                </div>
+            </div>
+
+            <div class="glossary-box">
+                <h4>📖 Glosarium</h4>
+                <ul>
+                    <li><strong>Bussing</strong> : Membersihkan meja, memisahkan sisa makanan, mengangkut peralatan kotor ke scullery.</li>
+                    <li><strong>Clear-as-you-go</strong> : Membersihkan segera setelah terlihat kotor.</li>
+                    <li><strong>Mise en Place</strong> : Penataan ulang peralatan makan dan pelengkap meja.</li>
+                    <li><strong>Scullery</strong> : Area pencucian peralatan kotor.</li>
+                </ul>
+            </div>
+            <div class="tips-section">
+                <h4>🛎️ Deteksi Kepergian Pelanggan</h4>
+                <ul>
+                    <li><strong>Observasi :</strong> Scan area setiap 3-5 menit.</li>
+                    <li><strong>Ucapan :</strong> "Terima kasih, sampai jumpa kembali di Nara!"</li>
+                    <li><strong>Cek Struk :</strong> Jika struk ditinggal di meja → status <strong>"Ready to Clear"</strong>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ========================================================== -->
+        <!-- TAB 2 : HOSPITALITY -->
+        <!-- ========================================================== -->
+        <div class="main-tab-content" id="tabHospitality">
+            <div class="section-title">Dasar-Dasar Hospitality Nara</div>
+            <div class="section-desc">Klik pada card untuk melihat materi lengkap.</div>
+
+            <div class="material-card group-hospitality" onclick="openMaterialModal('hospitality_golden')">
+                <div class="material-number">01</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Golden Rule</div>
+                    <div class="desc-material">Prinsip dasar: <strong>"Perlakukan tamu Nara sebagaimana Anda ingin diperlakukan."</strong></div>
+                    <span class="material-tag">🌟 Empati</span>
+                </div>
+            </div>
+            <div class="material-card group-hospitality" onclick="openMaterialModal('hospitality_components')">
+                <div class="material-number">02</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Komponen Utama</div>
+                    <div class="desc-material">Senyum, kontak mata, komunikasi, inisiatif, konsistensi, personalisasi.</div>
+                    <span class="material-tag">🌟 6 Komponen</span>
+                </div>
+            </div>
+            <div class="material-card group-hospitality" onclick="openMaterialModal('hospitality_recovery')">
+                <div class="material-number">03</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Service Recovery</div>
+                    <div class="desc-material">Dengarkan, Minta Maaf, Tawarkan Solusi, Tindak Lanjuti.</div>
+                    <span class="material-tag">🔄 Pemulihan</span>
+                </div>
+            </div>
+            <div class="material-card group-hospitality" onclick="openMaterialModal('hospitality_listening')">
+                <div class="material-number">04</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Active Listening</div>
+                    <div class="desc-material">Mendengarkan penuh perhatian dan merespon dengan tepat.</div>
+                    <span class="material-tag">👂 Komunikasi</span>
+                </div>
+            </div>
+            <div class="material-card group-hospitality" onclick="openMaterialModal('hospitality_hygiene')">
+                <div class="material-number">05</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Penampilan & Hygiene</div>
+                    <div class="desc-material">Seragam rapi, rambut rapi, kuku pendek, name tag jelas.</div>
+                    <span class="material-tag">🧼 Kebersihan Diri</span>
+                </div>
+            </div>
+            <div class="material-card group-hospitality" onclick="openMaterialModal('hospitality_etika')">
+                <div class="material-number">06</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Etika Komunikasi</div>
+                    <div class="desc-material">Sopan, panggil Bapak/Ibu, hindari slang, tetap tenang.</div>
+                    <span class="material-tag">🗣️ Etika</span>
+                </div>
+            </div>
+            <div class="material-card group-hospitality" onclick="openMaterialModal('hospitality_tips')">
+                <div class="material-number">07</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Tips Praktis Nara</div>
+                    <div class="desc-material">10-5 Rule, checkback, antisipasi, dan ucapkan terima kasih.</div>
+                    <span class="material-tag">💡 Tips</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================== -->
+        <!-- TAB 3 : FOOD SAFETY -->
+        <!-- ========================================================== -->
+        <div class="main-tab-content" id="tabFoodSafety">
+            <div class="section-title">Food Safety Nara</div>
+            <div class="section-desc">Klik pada card untuk melihat materi lengkap.</div>
+
+            <div class="material-card group-foodsafety" onclick="openMaterialModal('food_carry')">
+                <div class="material-number">01</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Cara Membawa Piring & Gelas</div>
+                    <div class="desc-material">Ibu jari tidak boleh menyentuh makanan/bibir gelas. Pegang dari bawah.</div>
+                    <span class="material-tag">🍽️ Teknik</span>
+                </div>
+            </div>
+            <div class="material-card group-foodsafety" onclick="openMaterialModal('food_allergen')">
+                <div class="material-number">02</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Penanganan Alergen</div>
+                    <div class="desc-material">Tanyakan ke dapur jika pelanggan alergi. Sanitasi meja jika alergi berat.</div>
+                    <span class="material-tag">⚠️ Alergen</span>
+                </div>
+            </div>
+            <div class="material-card group-foodsafety" onclick="openMaterialModal('food_temperature')">
+                <div class="material-number">03</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Suhu & Ketepatan</div>
+                    <div class="desc-material">Mont Blanc diantar maksimal 3 menit. Makanan panas segera diantar.</div>
+                    <span class="material-tag">🌡️ Suhu</span>
+                </div>
+            </div>
+            <div class="material-card group-foodsafety" onclick="openMaterialModal('food_hygiene')">
+                <div class="material-number">04</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Personal Hygiene</div>
+                    <div class="desc-material">Cuci tangan dengan sabun, gunakan hand sanitizer secara rutin.</div>
+                    <span class="material-tag">🧼 Hygiene</span>
+                </div>
+            </div>
+            <div class="material-card group-foodsafety" onclick="openMaterialModal('food_sanitasi')">
+                <div class="material-number">05</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Sanitasi & Kontaminasi</div>
+                    <div class="desc-material">Sanitasi meja dengan food-grade sanitizer. Pisahkan lap meja dan lap lantai.</div>
+                    <span class="material-tag">🧹 Sanitasi</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================== -->
+        <!-- TAB 4 : CLEANING (dengan teknik lap S-Pattern dan pisah toilet/komunal) -->
+        <!-- ========================================================== -->
+        <div class="main-tab-content" id="tabCleaning">
+            <div class="section-title">Prosedur Pembersihan Nara</div>
+            <div class="section-desc">Klik pada card untuk melihat materi lengkap.</div>
+
+            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_meja')">
+                <div class="material-number">01</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Pembersihan Meja & Kursi</div>
+                    <div class="desc-material">Bussing, semprot sanitizer, lap dengan gerakan <strong>S-Pattern (zig-zag) searah</strong> dari jauh ke dekat. Target 2 menit.</div>
+                    <span class="material-tag">🪑 Meja</span>
+                </div>
+            </div>
+            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_kaca')">
+                <div class="material-number">02</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Pembersihan Kaca</div>
+                    <div class="desc-material">Gunakan pembersih kaca dan lap microfiber. Gerakan zig-zag.</div>
+                    <span class="material-tag">🪟 Kaca</span>
+                </div>
+            </div>
+            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_langit')">
+                <div class="material-number">03</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Langit-Langit, Dinding & Sudut</div>
+                    <div class="desc-material">Gunakan duster gagang panjang, periksa sarang laba-laba dan debu.</div>
+                    <span class="material-tag">🏗️ Langit-langit</span>
+                </div>
+            </div>
+            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_lantai')">
+                <div class="material-number">04</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Pembersihan Lantai</div>
+                    <div class="desc-material">Sapu/vacuum, pel basah dengan disinfektan. Outdoor: sapu lalu siram.</div>
+                    <span class="material-tag">🧹 Lantai</span>
+                </div>
+            </div>
+            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_toilet')">
+                <div class="material-number">05</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Pembersihan Toilet (2 Toilet)</div>
+                    <div class="desc-material">Periksa setiap 30-60 menit. Bersihkan wastafel, kloset, lantai dengan disinfektan. Pastikan sabun, tisu, dan pengharum tersedia.</div>
+                    <span class="material-tag">🚽 Toilet</span>
+                </div>
+            </div>
+            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_komunal')">
+                <div class="material-number">06</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Pembersihan Area Komunal</div>
+                    <div class="desc-material">Lap meja panjang bersama, rak majalah, sofa tunggu, dan meja tinggi dengan sanitizer. Rapikan kembali.</div>
+                    <span class="material-tag">🛋️ Komunal</span>
+                </div>
+            </div>
+            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_peralatan')">
+                <div class="material-number">07</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Peralatan & Bahan Pembersih</div>
+                    <div class="desc-material">Lap microfiber (pisahkan fungsi), food-grade sanitizer, pembersih kaca, pel, disinfektan, sarung tangan.</div>
+                    <span class="material-tag">🧺 Peralatan</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================== -->
+        <!-- TAB 5 : KOMPLAIN (urutan: 1. LEARN, 2. Kasus, 3. Larangan, 4. Tabel, 5. Tips) -->
+        <!-- ========================================================== -->
+        <div class="main-tab-content" id="tabComplaint">
+            <div class="section-title">Penanganan Komplain &amp; Service Recovery</div>
+            <div class="section-desc">Klik pada card untuk melihat materi lengkap.</div>
+
+            <div class="material-card group-complaint" onclick="openMaterialModal('complaint_learn')">
+                <div class="material-number">01</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Metode LEARN</div>
+                    <div class="desc-material">Listen, Empathize, Apologize, Resolve, Notify — lima langkah profesional menangani komplain.</div>
+                    <span class="material-tag">📖 LEARN</span>
+                </div>
+            </div>
+            <div class="material-card group-complaint" onclick="openMaterialModal('complaint_kasus')">
+                <div class="material-number">02</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Contoh Kasus &amp; Solusi</div>
+                    <div class="desc-material">Kasus makanan tidak enak, pesanan terlambat, dan pesanan salah — dengan solusi konkret.</div>
+                    <span class="material-tag">📌 Kasus</span>
+                </div>
+            </div>
+            <div class="material-card group-complaint" onclick="openMaterialModal('complaint_larangan')">
+                <div class="material-number">03</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Hal yang Tidak Boleh Dilakukan</div>
+                    <div class="desc-material">Jangan membantah, menyalahkan dapur, atau mengatakan "saya cuma ikut perintah."</div>
+                    <span class="material-tag">🚫 Larangan</span>
+                </div>
+            </div>
+            <div class="material-card group-complaint" onclick="openMaterialModal('complaint_tabel')">
+                <div class="material-number">04</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Tabel Komplain Umum Nara</div>
+                    <div class="desc-material">Rasa tidak sesuai, pesanan lama, salah pesanan, benda asing, area kotor, sikap staff, pesanan habis — solusi dan PIC.</div>
+                    <span class="material-tag">📋 Tabel</span>
+                </div>
+            </div>
+            <div class="material-card group-complaint" onclick="openMaterialModal('complaint_tips')">
+                <div class="material-number">05</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Tips Tambahan</div>
+                    <div class="desc-material">Tetap tenang, gunakan nada rendah, libatkan manajer jika perlu, dan catat komplain untuk evaluasi.</div>
+                    <span class="material-tag">💡 Tips</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer-doc">
+            <div>Dokumen ini adalah materi training internal Nara Curated Compound dan tidak boleh disebarluaskan tanpa izin.</div>
+            <div>Dibuat oleh : <strong>Tim Operation &amp; Training</strong></div>
+        </div>
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- HALAMAN KUIS -->
+    <!-- ========================================================== -->
+    <div class="quiz-page" id="quizPage">
+        <div class="quiz-tab-header">
+            <div>
+                <h2 style="font-size: 24px; font-weight: 700; color: #0a1a2b;">📝 Kuis Evaluasi Training</h2>
+                <p style="color: #3d5166; font-size: 14px;">Isi nama dan job role, pilih topik kuis, lalu jawab 25 pertanyaan.</p>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                <button class="btn-quiz-toggle secondary" onclick="showSOP()">← Kembali ke Materi</button>
+                <div class="quiz-tab-group" id="quizTabGroup">
+                    <button class="btn-quiz-toggle active-tab" onclick="showQuizTab(1)">Kuis 1</button>
+                    <button class="btn-quiz-toggle secondary" onclick="showQuizTab(2)">Kuis 2</button>
+                    <button class="btn-quiz-toggle secondary" onclick="showQuizTab(3)">Kuis 3</button>
+                    <button class="btn-quiz-toggle secondary" onclick="showQuizTab(4)">Kuis 4</button>
+                    <button class="btn-quiz-toggle secondary" onclick="showQuizTab(5)">Kuis 5</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Identitas -->
+        <div class="quiz-form-group" id="identityForm">
+            <label>
+                Nama Lengkap
+                <input type="text" id="participantName" placeholder="Masukkan nama Anda" required>
+            </label>
+            <label>
+                Job Role
+                <select id="participantRole" required>
+                    <option value="">-- Pilih --</option>
+                    <option value="Kasir">Kasir</option>
+                    <option value="Server">Server</option>
+                    <option value="Barista">Barista</option>
+                    <option value="Kitchen">Kitchen</option>
+                    <option value="Shift Leader">Shift Leader</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+            </label>
+        </div>
+
+        <!-- Tempat 5 kontainer kuis -->
+        <div id="quizContainers">
+            <div class="quiz-tab-content active" id="quiz1Container"><div id="questions1Container"></div><button class="btn-submit-quiz" id="submitQuiz1Btn" onclick="handleSubmit(1)">✔️ Submit Kuis 1</button></div>
+            <div class="quiz-tab-content" id="quiz2Container"><div id="questions2Container"></div><button class="btn-submit-quiz" id="submitQuiz2Btn" onclick="handleSubmit(2)">✔️ Submit Kuis 2</button></div>
+            <div class="quiz-tab-content" id="quiz3Container"><div id="questions3Container"></div><button class="btn-submit-quiz" id="submitQuiz3Btn" onclick="handleSubmit(3)">✔️ Submit Kuis 3</button></div>
+            <div class="quiz-tab-content" id="quiz4Container"><div id="questions4Container"></div><button class="btn-submit-quiz" id="submitQuiz4Btn" onclick="handleSubmit(4)">✔️ Submit Kuis 4</button></div>
+            <div class="quiz-tab-content" id="quiz5Container"><div id="questions5Container"></div><button class="btn-submit-quiz" id="submitQuiz5Btn" onclick="handleSubmit(5)">✔️ Submit Kuis 5</button></div>
+        </div>
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- MODAL SOP (untuk tab 1) -->
+    <!-- ========================================================== -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+        <div class="modal-box" id="modalBox">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-step-num" id="modalStepNum">STEP 01</div>
+            <div class="modal-title" id="modalTitle">Nama Tahapan</div>
+            <div class="modal-role" id="modalRole">👤 Role</div>
+            <div class="modal-section">
+                <h4><span class="icon">📋</span> SOP Lengkap</h4>
+                <div id="modalSopContent"><p>Deskripsi SOP detail akan muncul di sini.</p></div>
+            </div>
+            <div class="modal-divider"></div>
+            <div class="modal-section">
+                <h4><span class="icon">💬</span> Panduan Berbicara (Script)</h4>
+                <div id="modalScriptContent">
+                    <div class="script-box"><p><span class="speaker">Contoh :</span> "Script akan muncul di sini."</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- MODAL MATERI (untuk tab 2-5) -->
+    <!-- ========================================================== -->
+    <div class="modal-overlay" id="materialModal" onclick="closeMaterialModalOutside(event)">
+        <div class="modal-box" id="materialModalBox">
+            <button class="modal-close" onclick="closeMaterialModal()">✕</button>
+            <div class="modal-step-num" id="materialStepNum">MATERI</div>
+            <div class="modal-title" id="materialTitle">Judul Materi</div>
+            <div class="modal-role" id="materialRole">📘 Topik</div>
+            <div class="modal-section">
+                <h4><span class="icon">🎯</span> Tujuan</h4>
+                <div id="materialTujuan"><p>Tujuan materi akan muncul di sini.</p></div>
+            </div>
+            <div class="modal-divider"></div>
+            <div class="modal-section">
+                <h4><span class="icon">📚</span> Materi Lengkap</h4>
+                <div id="materialContent"><p>Penjelasan detail akan muncul di sini.</p></div>
+            </div>
+            <div class="modal-divider" id="materialScriptDivider"></div>
+            <div class="modal-section" id="materialScriptSection">
+                <h4><span class="icon">💬</span> Contoh / Script</h4>
+                <div id="materialScriptContent">
+                    <div class="script-box"><p><span class="speaker">Contoh :</span> "Script atau contoh akan muncul di sini."</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- MODAL KONFIRMASI & HASIL -->
+    <!-- ========================================================== -->
+    <div class="modal-overlay confirm-modal" id="confirmModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeConfirmModal()">✕</button>
+            <div style="margin-top: 10px;">
+                <div style="font-size: 48px; margin-bottom: 8px;">⚠️</div>
+                <h3 style="font-size: 22px; margin-bottom: 8px;">Konfirmasi Submit</h3>
+                <p style="font-size: 16px; color: #3d5166; margin-bottom: 16px;">Apakah Anda yakin dengan semua jawaban? Setelah dikonfirmasi, Anda tidak dapat mengubah jawaban lagi.</p>
+                <div class="confirm-buttons">
+                    <button class="btn-cancel" onclick="closeConfirmModal()">Batal</button>
+                    <button class="btn-confirm" id="confirmSubmitBtn">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay quiz-result-modal" id="resultModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeResultModal()">✕</button>
+            <div style="margin-top: 10px;">
+                <div style="font-size: 48px; margin-bottom: 8px;" id="resultEmoji">🌟</div>
+                <div class="score-big" id="resultScore">0 / 25</div>
+                <div class="score-detail" id="resultParticipant">Nama : - | Job Role : -</div>
+                <div class="grade-text" id="resultGrade">-</div>
+                <button class="btn-quiz-toggle" onclick="closeResultModal()" style="margin-top: 12px;">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ========================================================== -->
+<!-- JAVASCRIPT (modular) -->
+<!-- ========================================================== -->
+<script src="js/data.js"></script>
+<script src="js/modals.js"></script>
+<script src="js/tabs.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
