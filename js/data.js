@@ -4,16 +4,16 @@
     const stepData = {
         1: { title: 'Greeting & Sambutan', role: '👤 Kasir · Barista · Server', 
             sop: `<p><strong>Tujuan :</strong> Memberikan kesan pertama yang hangat dan profesional.</p><ul><li>Sapa segera setelah pelanggan membuka pintu.</li><li>Gunakan senyum dan kontak mata.</li></ul>`, 
-            script: `<div class="script-box"><p><span class="speaker">Kasir/Server/Barista :</span> "Selamat pagi/siang/sore/malam Welcome to Nara"</p></div>` },
+            script: `<div class="script-box"><p><span class="speaker">Kasir/Server/Barista :</span> "Selamat pagi/siang/sore/malam, welcome to NARA! 😊"</p></div>` },
         2: { title: 'Edukasi Menu', role: '👤 Kasir', 
-            sop: `<p><strong>Tujuan :</strong> Membantu pelanggan memahami pilihan menu.</p><ul><li>Jelaskan Mont Blanc (foam orange zest), Butterscotch (seasalt + caramel crumble), Ramen (kuah/dry + topping Chasu/Beef/Katsu), Bolen, Roti Bakar.</li><li>Jelaskan tingkat manis dan pilihan blend.</li></ul>`, 
-            script: `<div class="script-box"><p><span class="speaker">Kasir :</span> "Mont Blanc ini kopi dengan foam yang lembut dan ada taburan orange zest. Untuk Ramen, kami ada yang berkuah dan dry, toppingnya bisa Chasu, Beef, atau Katsu."</p></div>` },
+            sop: `<p><strong>Tujuan :</strong> Membantu pelanggan memahami pilihan menu.</p><ul><li>Kuasai deskripsi setiap kategori menu — signature drink, makanan utama, dan menu pendamping (pastry/roti) — termasuk bahan utama, rasa, dan varian topping yang tersedia.</li><li>Jelaskan tingkat manis dan pilihan blend/upgrade yang bisa disesuaikan dengan selera pelanggan.</li></ul>`, 
+            script: `<div class="script-box"><p><span class="speaker">Kasir :</span> "Untuk signature drink kami, teksturnya lembut dengan foam yang creamy. Untuk menu makanan utama, kami ada pilihan kuah dan kering, dengan beberapa varian topping favorit."</p></div>` },
         3: { title: 'Upselling', role: '👤 Kasir', 
-            sop: `<p><strong>Tujuan :</strong> Meningkatkan nilai transaksi.</p><ul><li>Tawarkan extra shot atau upgrade blend (Full Arabica / Single Origin) dengan biaya tambahan.</li><li>Rekomendasikan Bolen atau Roti Bakar.</li></ul>`, 
-            script: `<div class="script-box"><p><span class="speaker">Kasir :</span> "Untuk Mont Blanc-nya, Bapak/Ibu bisa tambahkan extra shot atau pilih single origin untuk rasa yang lebih kompleks. Ada biaya tambahan Rp X untuk extra shot."</p></div>` },
+            sop: `<p><strong>Tujuan :</strong> Meningkatkan nilai transaksi.</p><ul><li>Tawarkan extra shot atau upgrade blend kopi premium dengan biaya tambahan.</li><li>Rekomendasikan menu pendamping (pastry/roti) yang cocok dipadukan dengan pesanan pelanggan.</li></ul>`, 
+            script: `<div class="script-box"><p><span class="speaker">Kasir :</span> "Untuk minumannya, Bapak/Ibu bisa tambahkan extra shot atau upgrade ke blend premium untuk rasa yang lebih kompleks. Ada biaya tambahan Rp X untuk extra shot, mau dicoba?"</p></div>` },
         4: { title: 'Konfirmasi Pemesanan', role: '👤 Kasir', 
             sop: `<p><strong>Tujuan :</strong> Menghindari kesalahan.</p><ul><li>Ulangi readback semua pesanan.</li><li>Konfirmasi varian, tingkat manis, blend, topping.</li></ul>`, 
-            script: `<div class="script-box"><p><span class="speaker">Kasir :</span> "Baik, saya ulangi: satu Mont Blanc, tingkat manis regular, extra shot, dan satu Ramen kuah dengan topping Chasu. Apakah sudah benar, Bapak/Ibu?"</p></div>` },
+            script: `<div class="script-box"><p><span class="speaker">Kasir :</span> "Baik, saya ulangi ya: satu signature drink dengan tingkat manis regular dan extra shot, satu menu makanan utama kuah dengan topping pilihan. Apakah sudah benar, Bapak/Ibu?"</p></div>` },
         5: { title: 'Pembayaran di Awal', role: '👤 Kasir', 
             sop: `<p><strong>Tujuan :</strong> Memproses transaksi dengan akurat.</p><ul><li>Terima pembayaran Cash/QRIS/EDC.</li><li>Cetak struk dan siapkan nomor meja.</li></ul>`, 
             script: `<div class="script-box"><p><span class="speaker">Kasir :</span> "Totalnya Rp 85.000, Bapak/Ibu. Ini struk dan nomor mejanya #07. Nanti pesanan akan kami antar ke meja."</p></div>` },
@@ -24,17 +24,17 @@
             sop: `<ul><li>Pelanggan memilih meja (Indoor/Outdoor/Komunal).</li><li>Menaruh nomor meja di tempat mudah terlihat.</li></ul>`, 
             script: `<div class="script-box"><p><em>Jika pelanggan bingung, server membantu :</em><br><span class="speaker">Server :</span> "Silakan duduk di sini, nomor mejanya bisa ditaruh di sisi meja ini."</p></div>` },
         8: { title: 'Produksi', role: '👤 Production', 
-            sop: `<p><strong>Tujuan :</strong> Menghasilkan produk sesuai standar.</p><ul><li>Barista membuat Mont Blanc (foam rapih, layering jelas, orange zest).</li><li>Kitchen menyiapkan Ramen.</li><li><strong>Mont Blanc wajib diantar dalam 3 menit.</strong></li></ul>`, 
+            sop: `<p><strong>Tujuan :</strong> Menghasilkan produk sesuai standar.</p><ul><li>Barista membuat signature drink sesuai resep standar (foam rapi, layering jelas, garnish sesuai SOP).</li><li>Kitchen menyiapkan menu makanan utama sesuai standar penyajian.</li><li><strong>Minuman signature wajib diantar maksimal 3 menit setelah selesai dibuat agar kualitas tetap optimal.</strong></li></ul>`, 
             script: `<div class="script-box"><p><em>Proses internal, tidak ada interaksi langsung dengan pelanggan.</em></p></div>` },
         9: { title: 'Quality Check', role: '👤 Server', 
-            sop: `<ul><li>Periksa tampilan Mont Blanc (foam, layering, zest).</li><li>Periksa Butterscotch (foam seasalt, caramel crumble).</li><li>Periksa Ramen (kuah/dry, topping sesuai).</li></ul>`, 
+            sop: `<ul><li>Periksa tampilan setiap minuman signature (foam, layering, garnish sesuai standar).</li><li>Periksa minuman lainnya (foam, garnish, taburan sesuai resep).</li><li>Periksa menu makanan utama (kuah/kering, topping sesuai pesanan).</li></ul>`, 
             script: `<div class="script-box"><p><em>Pengecekan internal. Jika ada yang kurang, minta ulang ke dapur.</em></p></div>` },
         10: { title: 'Persiapan Cutleries', role: '👤 Server', 
-            sop: `<ul><li>Siapkan sendok, garpu, sumpit (Ramen), serbet, tisu.</li><li>Letakkan di service tray.</li></ul>`, 
+            sop: `<ul><li>Siapkan peralatan makan sesuai jenis menu yang dipesan (sendok, garpu, sumpit, dsb), lengkap dengan serbet dan tisu.</li><li>Letakkan di service tray.</li></ul>`, 
             script: `<div class="script-box"><p><em>Tahap persiapan internal.</em></p></div>` },
         11: { title: 'Pengantaran Pesanan', role: '👤 Server', 
-            sop: `<ul><li>Antar sesuai nomor meja.</li><li>Untuk Mont Blanc: "Ini Mont Blanc-nya, mohon segera dinikmati agar foam tetap sempurna."</li><li>Untuk Ramen: "Ini Ramen-nya, masih panas, hati-hati ya."</li></ul>`, 
-            script: `<div class="script-box"><p><span class="speaker">Server :</span> "Permisi, ini Mont Blanc-nya, Bapak/Ibu. Mohon segera dinikmati agar foam tetap sempurna."</p></div>` },
+            sop: `<ul><li>Antar sesuai nomor meja.</li><li>Untuk minuman signature: "Ini minumannya, mohon segera dinikmati agar foam tetap sempurna."</li><li>Untuk makanan panas: "Ini pesanannya, masih panas, hati-hati ya."</li></ul>`, 
+            script: `<div class="script-box"><p><span class="speaker">Server :</span> "Permisi, ini minumannya, Bapak/Ibu. Mohon segera dinikmati agar foam-nya tetap sempurna ya!"</p></div>` },
         12: { title: 'Floor Patrol', role: '👤 Server', 
             sop: `<ul><li>Inspeksi rutin ke Indoor, Outdoor, Komunal.</li><li>Cek meja kotor, tumpahan, sampah, toilet.</li></ul>`, 
             script: `<div class="script-box"><p><span class="speaker">Server :</span> "Ada yang bisa saya bantu, Bapak/Ibu?" <em>(jika pelanggan terlihat butuh bantuan)</em></p></div>` },
@@ -66,21 +66,21 @@
             role: '📌 6 Kunci',
             tujuan: 'Mengidentifikasi dan menerapkan 6 komponen utama hospitality.',
             content: `<ul><li><strong>Senyum & Kontak Mata</strong> : Keramahan tulus.</li><li><strong>Komunikasi Baik</strong> : Mendengarkan aktif dan bahasa tubuh positif.</li><li><strong>Inisiatif</strong> : Antisipasi kebutuhan sebelum diminta.</li><li><strong>Konsistensi</strong> : Pelayanan sama untuk semua.</li><li><strong>Personalisasi</strong> : Ingat nama/preferensi pelanggan.</li><li><strong>Perhatian Detail</strong> : Hal kecil yang membuat istimewa.</li></ul>`,
-            script: `<div class="script-box"><p><span class="speaker">Contoh Personalisasi :</span> "Selamat sore, Pak Budi! Mont Blanc seperti biasa?"</p></div>`
+            script: `<div class="script-box"><p><span class="speaker">Contoh Personalisasi :</span> "Selamat sore, Pak Budi! Menu seperti biasa?"</p></div>`
         },
         'hospitality_recovery': {
             title: 'Service Recovery',
             role: '🔄 Pemulihan',
             tujuan: 'Memulihkan pengalaman pelanggan setelah terjadi kesalahan.',
             content: `<ul><li><strong>Dengarkan</strong> keluhan tanpa menyela.</li><li><strong>Empati</strong> : "Saya memahami kekesalan Anda."</li><li><strong>Minta Maaf</strong> dengan tulus.</li><li><strong>Resolve</strong> : Tawarkan solusi konkret.</li><li><strong>Notify</strong> : Informasikan solusi dan pastikan puas.</li></ul>`,
-            script: `<div class="script-box"><p><span class="speaker">Contoh :</span> "Saya minta maaf, Bu. Saya akan ganti dengan Mont Blanc yang baru. Kami usahakan dalam 5 menit."</p></div>`
+            script: `<div class="script-box"><p><span class="speaker">Contoh :</span> "Saya minta maaf, Bu. Saya akan buatkan gantinya yang baru. Kami usahakan dalam 5 menit ya."</p></div>`
         },
         'hospitality_listening': {
             title: 'Active Listening',
             role: '👂 Komunikasi',
             tujuan: 'Melatih kemampuan mendengarkan dengan penuh perhatian.',
             content: `<ul><li>Berikan perhatian penuh.</li><li>Hindari menyela.</li><li>Tunjukkan bahwa Anda mendengar (anggukan, respon verbal).</li><li>Paraphrase untuk memastikan pemahaman.</li><li>Bahasa tubuh positif.</li></ul>`,
-            script: `<div class="script-box"><p><span class="speaker">Contoh Paraphrase :</span> "Jadi, Bapak/Ibu ingin Mont Blanc tanpa gula dan dengan susu almond. Benar?"</p></div>`
+            script: `<div class="script-box"><p><span class="speaker">Contoh Paraphrase :</span> "Jadi, Bapak/Ibu ingin minumannya tanpa gula dan pakai susu almond. Benar?"</p></div>`
         },
         'hospitality_hygiene': {
             title: 'Penampilan & Hygiene',
@@ -94,14 +94,14 @@
             role: '🗣️ Sopan Santun',
             tujuan: 'Menggunakan bahasa dan sikap yang sopan.',
             content: `<ul><li>Gunakan bahasa <strong>sopan dan profesional</strong>.</li><li>Panggil <strong>Bapak/Ibu</strong>.</li><li>Hindari slang.</li><li>Jika pelanggan marah, tetap <strong>tenang</strong>.</li></ul>`,
-            script: `<div class="script-box"><p><span class="speaker">Contoh :</span> "Mohon maaf, Pak. Untuk pesanan Mont Blanc, kami membutuhkan waktu sekitar 7 menit. Apakah Bapak bersedia menunggu?"</p></div>`
+            script: `<div class="script-box"><p><span class="speaker">Contoh :</span> "Mohon maaf, Pak. Untuk pesanannya, kami membutuhkan waktu sekitar 7 menit. Apakah Bapak bersedia menunggu?"</p></div>`
         },
         'hospitality_tips': {
             title: 'Tips Praktis Nara',
             role: '💡 Penerapan',
             tujuan: 'Memberikan tips praktis yang bisa langsung diterapkan.',
             content: `<ul><li><strong>10-5 Rule</strong> : Sapa dalam 10 langkah, salam dalam 5 langkah.</li><li><strong>Checkback</strong> : Tanyakan kepuasan setelah mencicipi.</li><li><strong>Antisipasi</strong> : Perhatikan gelas kosong, tisu habis.</li><li><strong>Ucapan Terima Kasih</strong> : Selalu saat pelanggan pergi.</li></ul>`,
-            script: `<div class="script-box"><p><span class="speaker">Contoh Checkback :</span> "Bagaimana Mont Blanc-nya, Bapak? Apakah sesuai dengan selera?"</p></div>`
+            script: `<div class="script-box"><p><span class="speaker">Contoh Checkback :</span> "Bagaimana minumannya, Pak? Sudah sesuai dengan selera?"</p></div>`
         },
 
         // ----- FOOD SAFETY -----
@@ -117,14 +117,14 @@
             role: '⚠️ Keamanan',
             tujuan: 'Menangani pelanggan dengan alergi makanan.',
             content: `<ul><li>Tanyakan ke dapur jika pelanggan menyebut alergi.</li><li>Beri tahu pelanggan jika ada alergen, tawarkan alternatif.</li><li>Untuk alergi berat, <strong>sanitasi meja</strong> terlebih dahulu.</li><li>Gunakan alat saji terpisah.</li></ul>`,
-            script: `<div class="script-box"><p><span class="speaker">Contoh :</span> "Baik, Bu. Saya cek ke dapur dulu apakah Mont Blanc ini mengandung kacang."</p></div>`
+            script: `<div class="script-box"><p><span class="speaker">Contoh :</span> "Baik, Bu. Saya cek ke dapur dulu ya apakah menu ini mengandung kacang."</p></div>`
         },
         'food_temperature': {
             title: 'Suhu & Ketepatan',
             role: '🌡️ Kualitas',
             tujuan: 'Memastikan makanan disajikan pada suhu yang tepat.',
-            content: `<ul><li>Mont Blanc wajib diantar <strong>maksimal 3 menit</strong> setelah selesai.</li><li>Makanan panas segera diantar, tidak boleh di pass counter lebih dari 2 menit.</li><li>Minuman dingin tetap dingin (tambahkan es).</li></ul>`,
-            script: `<div class="script-box"><p>Jika Mont Blanc sudah terlalu lama, minta ulang ke barista.</p></div>`
+            content: `<ul><li>Minuman signature wajib diantar <strong>maksimal 3 menit</strong> setelah selesai dibuat agar kualitas foam dan tampilan tetap terjaga.</li><li>Makanan panas segera diantar, tidak boleh di pass counter lebih dari 2 menit.</li><li>Minuman dingin tetap dingin (tambahkan es).</li></ul>`,
+            script: `<div class="script-box"><p>Jika minuman signature sudah terlalu lama menunggu di pass counter, minta ulang ke barista.</p></div>`
         },
         'food_hygiene': {
             title: 'Personal Hygiene',
@@ -251,7 +251,7 @@
                         <p>1. <strong>Listen :</strong> "Silakan ceritakan apa yang terjadi, Bu."</p>
                         <p>2. <strong>Empathize :</strong> "Saya sangat memahami kekesalan Anda."</p>
                         <p>3. <strong>Apologize :</strong> "Saya mohon maaf yang sebesar-besarnya."</p>
-                        <p>4. <strong>Resolve :</strong> "Saya akan ganti dengan Mont Blanc yang baru."</p>
+                        <p>4. <strong>Resolve :</strong> "Saya akan buatkan gantinya yang baru untuk Bapak/Ibu."</p>
                         <p>5. <strong>Notify :</strong> "Sudah saya koordinasikan, pesanan baru akan siap dalam 5 menit."</p>
                     </div>`
         },
@@ -260,10 +260,10 @@
             role: '📌 Skenario',
             tujuan: 'Memberikan contoh konkret penanganan komplain.',
             content: `<ul>
-                        <li><strong>Kasus 1 : Mont Blanc terlalu manis/tawar.</strong><br>
-                        <em>Solusi :</em> "Saya minta maaf, Bu. Kami akan buatkan ulang Mont Blanc dengan tingkat manis yang sesuai."</li>
+                        <li><strong>Kasus 1 : Rasa minuman terlalu manis/tawar.</strong><br>
+                        <em>Solusi :</em> "Saya minta maaf, Bu. Kami akan buatkan ulang dengan tingkat manis yang sesuai."</li>
                         <li><strong>Kasus 2 : Pesanan lama.</strong><br>
-                        <em>Solusi :</em> "Mohon maaf atas keterlambatannya. Pesanan Bapak/Ibu sudah hampir selesai. Sebagai kompensasi, kami berikan Bolen kecil."</li>
+                        <em>Solusi :</em> "Mohon maaf atas keterlambatannya. Pesanan Bapak/Ibu sudah hampir selesai. Sebagai kompensasi, kami berikan menu pendamping kecil."</li>
                         <li><strong>Kasus 3 : Salah pesanan.</strong><br>
                         <em>Solusi :</em> "Saya minta maaf, Pak. Saya akan ganti dengan pesanan yang benar segera. Kami usahakan dalam 5-7 menit."</li>
                     </ul>`,
@@ -307,7 +307,7 @@
                                 <tr class="cat-service">
                                     <td><strong>Pesanan Terlalu Lama</strong><br><small>(Diatas standar waktu tunggu)</small></td>
                                     <td>Service</td>
-                                    <td>Cek posisi antrian, sampaikan permohonan maaf atas keterlambatan. Jika sangat lama, berikan complimentary (takjil/snack kecil) sebagai permohonan maaf.</td>
+                                    <td>Cek posisi antrian, sampaikan permohonan maaf atas keterlambatan. Jika sangat lama, berikan complimentary (snack kecil) sebagai permohonan maaf.</td>
                                     <td><strong>Kasir / Server</strong></td>
                                 </tr>
                                 <tr class="cat-service">
@@ -357,7 +357,7 @@
                         <li><strong>Follow-up</strong> setelah solusi diberikan.</li>
                         <li><strong>Jadikan komplain sebagai pelajaran</strong>.</li>
                     </ul>`,
-            script: `<div class="script-box"><p><span class="speaker">Contoh Follow-up :</span> "Bagaimana dengan Mont Blanc yang baru, Bu? Apakah sudah sesuai?"</p></div>`
+            script: `<div class="script-box"><p><span class="speaker">Contoh Follow-up :</span> "Bagaimana dengan pesanan penggantinya, Bu? Apakah sudah sesuai?"</p></div>`
         },
 
         // ----- SOP OPERATIONAL -----
@@ -400,9 +400,9 @@
             tujuan: 'Memahami seluruh tugas dan tanggung jawab posisi Server dalam operasional harian Nara Curated Compound.',
             content: `<ul>
                         <li><strong>Quality check sebelum pengantaran</strong> : Pastikan pesanan sesuai — tampilan, topping, dan varian sudah benar.</li>
-                        <li><strong>Persiapan cutleries</strong> : Siapkan sendok, garpu, sumpit (Ramen), serbet, dan tisu di service tray sebelum mengantarkan.</li>
+                        <li><strong>Persiapan cutleries</strong> : Siapkan peralatan makan sesuai jenis menu (sendok, garpu, sumpit, dsb), lengkap dengan serbet dan tisu di service tray sebelum mengantarkan.</li>
                         <li><strong>Mengantarkan pesanan ke meja</strong> yang benar sesuai nomor meja, cepat dan tanpa tumpah.</li>
-                        <li><strong>Menyampaikan informasi saat antar</strong> : "Ini Mont Blanc-nya, mohon segera dinikmati agar foam tetap sempurna."</li>
+                        <li><strong>Menyampaikan informasi saat antar</strong> : "Ini minumannya, mohon segera dinikmati agar foam-nya tetap sempurna."</li>
                         <li><strong>Floor patrol</strong> : Inspeksi rutin ke area Indoor, Outdoor, dan Komunal setiap 3–5 menit selama shift.</li>
                         <li><strong>Mendeteksi kebutuhan pelanggan</strong> secara proaktif — tawarkan bantuan sebelum diminta.</li>
                         <li><strong>Bussing (table clearance)</strong> : Bawa peralatan kotor ke scullery segera setelah pelanggan pergi, terapkan clear-as-you-go.</li>
