@@ -632,6 +632,24 @@
                     </ul>`,
             script: `<div class="script-box"><p>Server adalah "mata dan telinga" di lapangan — posisi yang paling sering berinteraksi langsung dan paling cepat mendeteksi kebutuhan maupun ketidakpuasan pelanggan.</p></div>`,
         },
+        'operational_kitchen': {
+            title: 'Tugas & Tanggung Jawab Kitchen',
+            role: '🍳 Posisi : Kitchen',
+            tujuan: 'Memahami seluruh tugas dan tanggung jawab posisi Kitchen dalam operasional harian Nara Curated Compound.',
+            content: `<ul>
+                        <li><strong>Menyiapkan menu makanan utama</strong> (Ramen kuah/dry dengan topping Chasu/Beef/Katsu, serta menu pendamping) sesuai resep dan porsi standar — <strong>tidak boleh berimprovisasi</strong> tanpa persetujuan Shift Leader/Manager.</li>
+                        <li><strong>Konsistensi plating</strong> : Penataan topping, jumlah kuah, dan kerapian penyajian harus sama di setiap pesanan, kapan pun waktunya dan siapa pun yang memasak.</li>
+                        <li><strong>Kecepatan produksi</strong> : Menu makanan utama wajib selesai dalam <strong>5 - 8 menit</strong> sejak order diterima, disesuaikan dengan kompleksitas menu.</li>
+                        <li><strong>Manajemen bahan baku (FIFO)</strong> : Terapkan First In, First Out dan periksa tanggal kadaluarsa bahan secara rutin agar tidak ada bahan yang terbuang atau terpakai melewati batas aman.</li>
+                        <li><strong>Menjaga kebersihan area dapur</strong> : Permukaan kerja, talenan, dan peralatan masak disanitasi setelah digunakan untuk mencegah kontaminasi silang antar jenis bahan.</li>
+                        <li><strong>Koordinasi dengan Quality Check (Server)</strong> : Pastikan porsi dan topping sesuai struk sebelum pesanan diangkat dari pass counter.</li>
+                        <li><strong>Melaporkan kendala stok</strong> ke kasir segera jika ada bahan yang habis/menipis, agar pelanggan dapat diinformasikan lebih awal sebelum memesan.</li>
+                        <li><strong>Penerapan personal hygiene</strong> : Cuci tangan rutin, sarung tangan sekali pakai untuk makanan siap saji, dan tidak bekerja saat sakit menular.</li>
+                        <li><strong>Manajemen suhu penyimpanan</strong> : Memantau suhu chiller/freezer dan segera melaporkan ke Shift Leader jika ditemukan bahan yang terlihat tidak layak (basi/berubah warna).</li>
+                        <li><strong>Closing dapur</strong> : Bersihkan dan sanitasi seluruh peralatan masak, simpan bahan sisa sesuai SOP penyimpanan, dan siapkan dapur untuk shift berikutnya.</li>
+                    </ul>`,
+            script: `<div class="script-box"><p><em>Proses internal, tidak ada interaksi langsung dengan pelanggan.</em></p><p><em>Jika ada kendala stok/waktu produksi memanjang, informasikan segera ke kasir :</em><br><span class="speaker">Kitchen :</span> "Untuk meja 07, mohon informasikan tambahan waktu sekitar 5 menit karena [alasan singkat]."</p></div>`,
+        },
 
         // ----- CLEANING : TANAMAN -----
         'clean_tanaman': {
