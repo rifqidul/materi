@@ -3,8 +3,8 @@
     // =============================================
     const stepData = {
         1: { title: 'Greeting & Sambutan', role: '👤 Kasir · Barista · Server', 
-            sop: `<p><strong>Tujuan :</strong> Memberikan kesan pertama yang hangat dan profesional.</p><ul><li>Sapa segera setelah pelanggan membuka pintu.</li><li>Gunakan senyum dan kontak mata.</li><li>Tawarkan rekomendasi menu signature Nara.</li></ul>`, 
-            script: `<div class="script-box"><p><span class="speaker">Kasir/Server/Barista :</span> "Selamat datang di Nara, Bapak/Ibu! Kami ada Mont Blanc dengan foam orange zest yang sedang populer. Mau saya bantu pilihkan menu?"</p></div>` },
+            sop: `<p><strong>Tujuan :</strong> Memberikan kesan pertama yang hangat dan profesional.</p><ul><li>Sapa segera setelah pelanggan membuka pintu.</li><li>Gunakan senyum dan kontak mata.</li></ul>`, 
+            script: `<div class="script-box"><p><span class="speaker">Kasir/Server/Barista :</span> "Selamat pagi/siang/sore/malam Welcome to Nara"</p></div>` },
         2: { title: 'Edukasi Menu', role: '👤 Kasir', 
             sop: `<p><strong>Tujuan :</strong> Membantu pelanggan memahami pilihan menu.</p><ul><li>Jelaskan Mont Blanc (foam orange zest), Butterscotch (seasalt + caramel crumble), Ramen (kuah/dry + topping Chasu/Beef/Katsu), Bolen, Roti Bakar.</li><li>Jelaskan tingkat manis dan pilihan blend.</li></ul>`, 
             script: `<div class="script-box"><p><span class="speaker">Kasir :</span> "Mont Blanc ini kopi dengan foam yang lembut dan ada taburan orange zest. Untuk Ramen, kami ada yang berkuah dan dry, toppingnya bisa Chasu, Beef, atau Katsu."</p></div>` },
