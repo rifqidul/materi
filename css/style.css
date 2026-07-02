@@ -117,6 +117,7 @@
 
         .group-hospitality { background-color: #fff7ed; border-left: 5px solid #ea580c; }
         .group-foodsafety { background-color: #ecfdf5; border-left: 5px solid #059669; }
+        .group-operational { background-color: #f0fdfa; border-left: 5px solid #0d9488; }
         .group-cleaning { background-color: #eff6ff; border-left: 5px solid #2563eb; }
         .group-complaint { background-color: #fef2f2; border-left: 5px solid #dc2626; }
 
@@ -151,6 +152,7 @@
             letter-spacing: 0.5px; padding: 2px 10px; border-radius: 100px;
             background: #eef3f9; color: #4b5563; margin-top: 5px;
         }
+        .group-operational .material-tag { background: #99f6e4; color: #134e4a; }
         .group-hospitality .material-tag { background: #fed7aa; color: #7c2d12; }
         .group-foodsafety .material-tag { background: #a7f3d0; color: #064e3b; }
         .group-cleaning .material-tag { background: #93c5fd; color: #1e3a8a; }

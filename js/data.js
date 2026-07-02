@@ -358,6 +358,79 @@
                         <li><strong>Jadikan komplain sebagai pelajaran</strong>.</li>
                     </ul>`,
             script: `<div class="script-box"><p><span class="speaker">Contoh Follow-up :</span> "Bagaimana dengan Mont Blanc yang baru, Bu? Apakah sudah sesuai?"</p></div>`
+        },
+
+        // ----- SOP OPERATIONAL -----
+        'operational_kasir': {
+            title: 'Tugas & Tanggung Jawab Kasir',
+            role: '🧾 Posisi : Kasir',
+            tujuan: 'Memahami seluruh tugas dan tanggung jawab posisi Kasir dalam operasional harian Nara Curated Compound.',
+            content: `<ul>
+                        <li><strong>Menyambut pelanggan</strong> dengan senyum dan salam saat memasuki area kasir.</li>
+                        <li><strong>Edukasi menu</strong> : Menjelaskan pilihan menu, bahan, dan varian kepada pelanggan dengan percaya diri.</li>
+                        <li><strong>Upselling</strong> : Menawarkan extra shot, upgrade blend, atau menu tambahan secara sopan dan natural.</li>
+                        <li><strong>Konfirmasi pesanan (Readback)</strong> : Mengulang seluruh pesanan untuk memastikan akurasi sebelum diproses.</li>
+                        <li><strong>Memproses pembayaran</strong> : Cash, QRIS, dan EDC dengan akurat dan efisien.</li>
+                        <li><strong>Mencetak struk dan menyiapkan nomor meja</strong> untuk pengantaran pesanan ke meja.</li>
+                        <li><strong>Koordinasi dengan produksi</strong> : Memastikan order tersampaikan dengan benar ke barista dan kitchen.</li>
+                        <li><strong>Mengelola antrian</strong> : Mengatur arus pelanggan agar tidak terjadi penumpukan di area kasir.</li>
+                        <li><strong>Menjaga kebersihan area kasir</strong> : Meja kasir, mesin EDC, dan area sekitar selalu rapi setiap saat.</li>
+                        <li><strong>Melapor ke Shift Leader</strong> jika terjadi kendala transaksi, selisih kas, atau keluhan pelanggan.</li>
+                    </ul>`,
+            script: `<div class="script-box"><p><span class="speaker">Kasir :</span> "Selamat datang di Nara! Ada yang bisa saya bantu? Hari ini kami punya Mont Blanc dengan foam orange zest yang sedang populer — mau saya rekomendasikan?"</p></div>`
+        },
+        'operational_barista': {
+            title: 'Tugas & Tanggung Jawab Barista',
+            role: '☕ Posisi : Barista',
+            tujuan: 'Memahami seluruh tugas dan tanggung jawab posisi Barista dalam operasional harian Nara Curated Compound.',
+            content: `<ul>
+                        <li><strong>Memproduksi minuman sesuai standar resep</strong> Nara — rasa, tampilan, dan teknik harus konsisten setiap saat.</li>
+                        <li><strong>Quality control</strong> : Memeriksa tampilan dan rasa setiap minuman sebelum diserahkan ke server untuk diantar.</li>
+                        <li><strong>Kecepatan produksi</strong> : Mont Blanc wajib selesai dalam <strong>3 menit</strong> sejak order masuk.</li>
+                        <li><strong>Menjaga kebersihan bar area</strong> : Area kerja, peralatan, grup head, dan steam wand selalu bersih sepanjang shift.</li>
+                        <li><strong>Kalibrasi mesin kopi</strong> : Mengecek grinder, tekanan espresso, dan suhu air secara berkala sesuai SOP pembukaan.</li>
+                        <li><strong>Manajemen stok bahan baku</strong> : Memantau ketersediaan biji kopi, susu, sirup, dan bahan topping; melaporkan ke Shift Leader jika stok menipis.</li>
+                        <li><strong>Penerapan personal hygiene</strong> : Sarung tangan saat handling topping, apron bersih, dan kuku pendek wajib dipatuhi.</li>
+                        <li><strong>Koordinasi dengan kasir dan server</strong> : Memastikan urutan pesanan sesuai antrian, terutama saat jam ramai.</li>
+                        <li><strong>Membantu menyapa pelanggan</strong> secara hangat jika posisi berada dekat area pelanggan.</li>
+                    </ul>`,
+            script: `<div class="script-box"><p><span class="speaker">Standar Visual :</span> Pastikan layering Mont Blanc jelas, foam rapi dan tidak berlebihan, orange zest ditaburkan merata. Jangan menyerahkan minuman yang tidak memenuhi standar visual kepada server.</p></div>`
+        },
+        'operational_server': {
+            title: 'Tugas & Tanggung Jawab Server',
+            role: '🛎️ Posisi : Server',
+            tujuan: 'Memahami seluruh tugas dan tanggung jawab posisi Server dalam operasional harian Nara Curated Compound.',
+            content: `<ul>
+                        <li><strong>Quality check sebelum pengantaran</strong> : Pastikan pesanan sesuai — tampilan, topping, dan varian sudah benar.</li>
+                        <li><strong>Persiapan cutleries</strong> : Siapkan sendok, garpu, sumpit (Ramen), serbet, dan tisu di service tray sebelum mengantarkan.</li>
+                        <li><strong>Mengantarkan pesanan ke meja</strong> yang benar sesuai nomor meja, cepat dan tanpa tumpah.</li>
+                        <li><strong>Menyampaikan informasi saat antar</strong> : "Ini Mont Blanc-nya, mohon segera dinikmati agar foam tetap sempurna."</li>
+                        <li><strong>Floor patrol</strong> : Inspeksi rutin ke area Indoor, Outdoor, dan Komunal setiap 3–5 menit selama shift.</li>
+                        <li><strong>Mendeteksi kebutuhan pelanggan</strong> secara proaktif — tawarkan bantuan sebelum diminta.</li>
+                        <li><strong>Bussing (table clearance)</strong> : Bawa peralatan kotor ke scullery segera setelah pelanggan pergi, terapkan clear-as-you-go.</li>
+                        <li><strong>Deteksi kepergian pelanggan</strong> : Scan area setiap 3–5 menit, ucapkan "Terima kasih, sampai jumpa kembali di Nara!"</li>
+                        <li><strong>Reset meja (turnaround)</strong> : Sanitasi meja dan kursi dengan food-grade sanitizer, mise en place, target maksimal 2 menit.</li>
+                        <li><strong>Pemeriksaan toilet</strong> : Cek kebersihan, sabun, tisu, dan pengharum setiap 30–60 menit.</li>
+                        <li><strong>Melaporkan kendala</strong> atau komplain pelanggan ke Shift Leader segera, jangan ditangani sendiri jika di luar kewenangan.</li>
+                    </ul>`,
+            script: `<div class="script-box"><p><span class="speaker">Server :</span> "Permisi, ini Mont Blanc-nya, Bapak/Ibu. Mohon segera dinikmati agar foam tetap sempurna. Selamat menikmati!"</p></div>`
+        },
+
+        // ----- CLEANING : TANAMAN -----
+        'clean_tanaman': {
+            title: 'Perawatan Tanaman',
+            role: '🌿 Area Outdoor & Indoor',
+            tujuan: 'Menjaga tanaman dekoratif Nara tetap segar, bersih, dan mendukung kenyamanan visual area dining sebelum dan selama operasional.',
+            content: `<ul>
+                        <li><strong>Jadwal penyiraman</strong> : Siram tanaman <strong>setiap pagi sebelum operasional dimulai</strong> — sebelum pelanggan pertama datang.</li>
+                        <li><strong>Jumlah air</strong> : Siram hingga media tanam lembab merata, tidak tergenang. Periksa kondisi tanah (tidak terlalu kering, tidak terlalu basah).</li>
+                        <li><strong>Tanaman indoor</strong> : Gunakan watering can kecil agar air tidak membasahi meja, lantai, atau dekorasi di sekitarnya. Lap segera jika ada percikan air.</li>
+                        <li><strong>Tanaman outdoor</strong> : Gunakan selang atau watering can sesuai ukuran pot. Arahkan air ke pangkal tanaman, bukan ke daun secara langsung.</li>
+                        <li><strong>Pemeriksaan visual</strong> : Cek daun layu, daun kuning, atau daun mati setiap hari — cabut dan buang segera agar tampilan tetap rapi dan estetis.</li>
+                        <li><strong>Bersihkan pot dan area sekitar</strong> : Lap debu dari permukaan pot, nampan, dan area lantai atau meja di sekitar tanaman setelah menyiram.</li>
+                        <li><strong>Laporkan ke Shift Leader</strong> jika ada tanaman yang layu parah, terserang hama, atau perlu penggantian media tanam dan pot.</li>
+                    </ul>`,
+            script: `<div class="script-box"><p><span class="speaker">Catatan :</span> Tanaman adalah bagian dari estetika dan suasana Nara. Pastikan kondisi tanaman selalu segar dan area sekitarnya bersih sebelum pelanggan pertama tiba.</p></div>`
         }
     };
 

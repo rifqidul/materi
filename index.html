@@ -33,7 +33,7 @@
 
         <!-- TOP ACTIONS -->
         <div class="top-actions">
-            <div class="concept-badge">✦ Nara Curated Compound · Bayar di Awal · Antar ke Meja</div>
+            <div class="concept-badge">✦ FOH Training Module</div>
             <button class="btn-quiz-toggle" onclick="showQuiz()">📝 Ikuti Kuis</button>
         </div>
 
@@ -52,10 +52,11 @@
         <!-- ===== TAB NAVIGASI ===== -->
         <div class="main-tabs">
             <button class="main-tab-btn active" data-tab="tabSOP" onclick="switchMainTab('tabSOP')">1. SOP Alur</button>
-            <button class="main-tab-btn" data-tab="tabHospitality" onclick="switchMainTab('tabHospitality')">2. Hospitality</button>
-            <button class="main-tab-btn" data-tab="tabFoodSafety" onclick="switchMainTab('tabFoodSafety')">3. Food Safety</button>
-            <button class="main-tab-btn" data-tab="tabCleaning" onclick="switchMainTab('tabCleaning')">4. Cleaning</button>
-            <button class="main-tab-btn" data-tab="tabComplaint" onclick="switchMainTab('tabComplaint')">5. Komplain</button>
+            <button class="main-tab-btn" data-tab="tabOperational" onclick="switchMainTab('tabOperational')">2. SOP Operational</button>
+            <button class="main-tab-btn" data-tab="tabHospitality" onclick="switchMainTab('tabHospitality')">3. Hospitality</button>
+            <button class="main-tab-btn" data-tab="tabFoodSafety" onclick="switchMainTab('tabFoodSafety')">4. Food Safety</button>
+            <button class="main-tab-btn" data-tab="tabCleaning" onclick="switchMainTab('tabCleaning')">5. Cleaning</button>
+            <button class="main-tab-btn" data-tab="tabComplaint" onclick="switchMainTab('tabComplaint')">6. Komplain</button>
         </div>
 
         <!-- ========================================================== -->
@@ -233,7 +234,40 @@
         </div>
 
         <!-- ========================================================== -->
-        <!-- TAB 2 : HOSPITALITY -->
+        <!-- TAB 2 : SOP OPERATIONAL -->
+        <!-- ========================================================== -->
+        <div class="main-tab-content" id="tabOperational">
+            <div class="section-title">SOP Operasional — Tugas &amp; Tanggung Jawab</div>
+            <div class="section-desc">Klik pada card untuk melihat materi lengkap mengenai tugas dan tanggung jawab masing-masing posisi.</div>
+
+            <div class="material-card group-operational" onclick="openMaterialModal('operational_kasir')">
+                <div class="material-number">01</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Tugas &amp; Tanggung Jawab Kasir</div>
+                    <div class="desc-material">Menerima pesanan, memproses pembayaran, edukasi menu, readback order, dan koordinasi dengan tim produksi.</div>
+                    <span class="material-tag">🧾 Kasir</span>
+                </div>
+            </div>
+            <div class="material-card group-operational" onclick="openMaterialModal('operational_barista')">
+                <div class="material-number">02</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Tugas &amp; Tanggung Jawab Barista</div>
+                    <div class="desc-material">Memproduksi minuman sesuai standar resep, menjaga kualitas dan kecepatan, serta menjaga kebersihan bar area.</div>
+                    <span class="material-tag">☕ Barista</span>
+                </div>
+            </div>
+            <div class="material-card group-operational" onclick="openMaterialModal('operational_server')">
+                <div class="material-number">03</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Tugas &amp; Tanggung Jawab Server</div>
+                    <div class="desc-material">Mengantarkan pesanan, floor patrol, bussing meja, mendeteksi kepergian pelanggan, dan reset meja.</div>
+                    <span class="material-tag">🛎️ Server</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================== -->
+        <!-- TAB 3 : HOSPITALITY -->
         <!-- ========================================================== -->
         <div class="main-tab-content" id="tabHospitality">
             <div class="section-title">Dasar-Dasar Hospitality Nara</div>
@@ -298,7 +332,7 @@
         </div>
 
         <!-- ========================================================== -->
-        <!-- TAB 3 : FOOD SAFETY -->
+        <!-- TAB 4 : FOOD SAFETY -->
         <!-- ========================================================== -->
         <div class="main-tab-content" id="tabFoodSafety">
             <div class="section-title">Food Safety Nara</div>
@@ -347,7 +381,7 @@
         </div>
 
         <!-- ========================================================== -->
-        <!-- TAB 4 : CLEANING (dengan teknik lap S-Pattern dan pisah toilet/komunal) -->
+        <!-- TAB 5 : CLEANING (dengan teknik lap S-Pattern dan pisah toilet/komunal) -->
         <!-- ========================================================== -->
         <div class="main-tab-content" id="tabCleaning">
             <div class="section-title">Prosedur Pembersihan Nara</div>
@@ -404,15 +438,23 @@
             <div class="material-card group-cleaning" onclick="openMaterialModal('clean_peralatan')">
                 <div class="material-number">07</div>
                 <div class="material-content-summary">
-                    <div class="title-material">Peralatan & Bahan Pembersih</div>
+                    <div class="title-material">Peralatan &amp; Bahan Pembersih</div>
                     <div class="desc-material">Lap microfiber (pisahkan fungsi), food-grade sanitizer, pembersih kaca, pel, disinfektan, sarung tangan.</div>
                     <span class="material-tag">🧺 Peralatan</span>
+                </div>
+            </div>
+            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_tanaman')">
+                <div class="material-number">08</div>
+                <div class="material-content-summary">
+                    <div class="title-material">Perawatan Tanaman</div>
+                    <div class="desc-material">Menyiram dan merawat tanaman dekoratif area Indoor dan Outdoor setiap pagi sebelum operasional. Jaga tampilan tetap segar dan area sekitar tetap bersih.</div>
+                    <span class="material-tag">🌿 Tanaman</span>
                 </div>
             </div>
         </div>
 
         <!-- ========================================================== -->
-        <!-- TAB 5 : KOMPLAIN (urutan: 1. LEARN, 2. Kasus, 3. Larangan, 4. Tabel, 5. Tips) -->
+        <!-- TAB 6 : KOMPLAIN (urutan: 1. LEARN, 2. Kasus, 3. Larangan, 4. Tabel, 5. Tips) -->
         <!-- ========================================================== -->
         <div class="main-tab-content" id="tabComplaint">
             <div class="section-title">Penanganan Komplain &amp; Service Recovery</div>
