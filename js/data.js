@@ -376,25 +376,23 @@
                         <li><strong>Mengelola antrian</strong> : Mengatur arus pelanggan agar tidak terjadi penumpukan di area kasir.</li>
                         <li><strong>Menjaga kebersihan area kasir</strong> : Meja kasir, mesin EDC, dan area sekitar selalu rapi setiap saat.</li>
                         <li><strong>Melapor ke Shift Leader</strong> jika terjadi kendala transaksi, selisih kas, atau keluhan pelanggan.</li>
-                    </ul>`,
-            script: `<div class="script-box"><p><span class="speaker">Kasir :</span> "Selamat datang di Nara! Ada yang bisa saya bantu? Hari ini kami punya Mont Blanc dengan foam orange zest yang sedang populer — mau saya rekomendasikan?"</p></div>`
+                    </ul>`,            
         },
         'operational_barista': {
             title: 'Tugas & Tanggung Jawab Barista',
             role: '☕ Posisi : Barista',
             tujuan: 'Memahami seluruh tugas dan tanggung jawab posisi Barista dalam operasional harian Nara Curated Compound.',
             content: `<ul>
-                        <li><strong>Memproduksi minuman sesuai standar resep</strong> Nara — rasa, tampilan, dan teknik harus konsisten setiap saat.</li>
+                        <li><strong>Memproduksi minuman sesuai standar resep</strong> : rasa, tampilan, dan teknik harus konsisten setiap saat.</li>
                         <li><strong>Quality control</strong> : Memeriksa tampilan dan rasa setiap minuman sebelum diserahkan ke server untuk diantar.</li>
-                        <li><strong>Kecepatan produksi</strong> : Mont Blanc wajib selesai dalam <strong>3 menit</strong> sejak order masuk.</li>
+                        <li><strong>Kecepatan produksi</strong> : Menu minuman wajib selesai dalam <strong>1 - 5 menit</strong> sejak order masuk.</li>
                         <li><strong>Menjaga kebersihan bar area</strong> : Area kerja, peralatan, grup head, dan steam wand selalu bersih sepanjang shift.</li>
                         <li><strong>Kalibrasi mesin kopi</strong> : Mengecek grinder, tekanan espresso, dan suhu air secara berkala sesuai SOP pembukaan.</li>
-                        <li><strong>Manajemen stok bahan baku</strong> : Memantau ketersediaan biji kopi, susu, sirup, dan bahan topping; melaporkan ke Shift Leader jika stok menipis.</li>
+                        <li><strong>Manajemen stok bahan baku</strong> : Memantau ketersediaan biji kopi, susu, sirup, dan bahan baku lainnya; melaporkan ke group WA jika stok menipis.</li>
                         <li><strong>Penerapan personal hygiene</strong> : Sarung tangan saat handling topping, apron bersih, dan kuku pendek wajib dipatuhi.</li>
                         <li><strong>Koordinasi dengan kasir dan server</strong> : Memastikan urutan pesanan sesuai antrian, terutama saat jam ramai.</li>
                         <li><strong>Membantu menyapa pelanggan</strong> secara hangat jika posisi berada dekat area pelanggan.</li>
-                    </ul>`,
-            script: `<div class="script-box"><p><span class="speaker">Standar Visual :</span> Pastikan layering Mont Blanc jelas, foam rapi dan tidak berlebihan, orange zest ditaburkan merata. Jangan menyerahkan minuman yang tidak memenuhi standar visual kepada server.</p></div>`
+                    </ul>`,            
         },
         'operational_server': {
             title: 'Tugas & Tanggung Jawab Server',
@@ -413,7 +411,6 @@
                         <li><strong>Pemeriksaan toilet</strong> : Cek kebersihan, sabun, tisu, dan pengharum setiap 30–60 menit.</li>
                         <li><strong>Melaporkan kendala</strong> atau komplain pelanggan ke Shift Leader segera, jangan ditangani sendiri jika di luar kewenangan.</li>
                     </ul>`,
-            script: `<div class="script-box"><p><span class="speaker">Server :</span> "Permisi, ini Mont Blanc-nya, Bapak/Ibu. Mohon segera dinikmati agar foam tetap sempurna. Selamat menikmati!"</p></div>`
         },
 
         // ----- CLEANING : TANAMAN -----
@@ -430,7 +427,7 @@
                         <li><strong>Bersihkan pot dan area sekitar</strong> : Lap debu dari permukaan pot, nampan, dan area lantai atau meja di sekitar tanaman setelah menyiram.</li>
                         <li><strong>Laporkan ke Shift Leader</strong> jika ada tanaman yang layu parah, terserang hama, atau perlu penggantian media tanam dan pot.</li>
                     </ul>`,
-            script: `<div class="script-box"><p><span class="speaker">Catatan :</span> Tanaman adalah bagian dari estetika dan suasana Nara. Pastikan kondisi tanaman selalu segar dan area sekitarnya bersih sebelum pelanggan pertama tiba.</p></div>`
+            script: `<div class="script-box"><p><span class="speaker">Catatan :</span> Tanaman adalah bagian dari estetika dan suasana. Pastikan kondisi tanaman selalu segar dan area sekitarnya bersih sebelum pelanggan pertama tiba.</p></div>`
         }
     };
 
