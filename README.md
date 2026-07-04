@@ -36,10 +36,24 @@ Tidak perlu build tool apapun (vanilla HTML/CSS/JS). Cukup:
 
 `data.js` dimuat paling awal karena `modals.js`, `quiz.js`, dan `tabs.js` bergantung pada data (`stepData`, `materialData`, dan 5 array soal) yang didefinisikan di sana. Urutan di `index.html` sudah diatur sesuai dependensi ini — jangan diacak urutannya.
 
-## Known Issue (peninggalan dari versi asli)
+## Update: Terhubung ke Supabase + Login Admin
 
-Di `js/main.js`, saat inisialisasi ada baris:
-```js
-document.getElementById('tab1Btn').className = 'btn-quiz-toggle active-tab';
-```
-Elemen dengan id `tab1Btn` tidak ada di markup (tombol tab kuis di `index.html` tidak diberi id), jadi baris ini berpotensi memicu error di console browser meski tidak mengganggu fungsi utama kuis. Ini sudah ada di file HTML aslinya sebelum dipecah — beri tahu saya kalau mau sekalian diperbaiki.
+Mulai versi ini, seluruh materi, SOP, dan soal kuis **tidak lagi hardcode** di
+`js/data.js` — melainkan diambil langsung dari database Supabase saat halaman
+dibuka. Ada juga tombol **Login Admin** di header untuk melakukan CRUD (tambah/
+edit/hapus) SOP, materi, dan soal kuis langsung dari web.
+
+Lihat **`PANDUAN-SETUP-SUPABASE.md`** (satu folder di atas folder ini) untuk
+langkah lengkap setup project Supabase, migrasi data, dan cara pakai fitur admin.
+
+File baru yang ditambahkan:
+- `js/supabase-config.js` — isi URL & anon key project Supabase Anda di sini.
+- `js/supabase-client.js` — koneksi & pengecekan status login.
+- `js/render.js` — render card SOP/materi secara dinamis dari data Supabase.
+- `js/admin.js` — form login & CRUD untuk admin.
+
+## Known Issue (sudah diperbaiki di versi Supabase ini)
+
+Sebelumnya `js/main.js` punya baris `document.getElementById('tab1Btn')...` yang
+mengacu ke id yang tidak ada di markup dan memicu error di console. Baris ini
+sudah dihapus di `js/main.js` versi sekarang.

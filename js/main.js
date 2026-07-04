@@ -1,5 +1,5 @@
     // =============================================
-    // HAPUS BORDER MERAH SAAT FORM DIISI
+    // INISIALISASI SAAT HALAMAN DIMUAT
     // =============================================
     document.addEventListener('DOMContentLoaded', function() {
         const nameInput = document.getElementById('participantName');
@@ -13,9 +13,10 @@
             if (this.value) this.classList.remove('error');
         });
 
-        renderAllQuizzes();
-        document.getElementById('quiz1Container').classList.add('active');
-        document.getElementById('tab1Btn').className = 'btn-quiz-toggle active-tab';
+        // Cek status login (jika sebelumnya sudah login & sesi masih aktif)
+        refreshAuthState();
+        // Ambil semua materi & kuis dari Supabase, lalu render UI
+        loadAllData();
     });
 
     // =============================================
@@ -27,5 +28,9 @@
             closeMaterialModal();
             closeConfirmModal();
             closeResultModal();
+            closeLoginModal();
+            closeAdminForm();
+            closeQuizManage();
+            closeQuizResults();
         }
     });

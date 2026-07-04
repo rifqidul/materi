@@ -8,6 +8,16 @@
 </head>
 <body>
 
+<!-- ========================================================== -->
+<!-- LOADING OVERLAY (tampil sampai data dari Supabase selesai dimuat) -->
+<!-- ========================================================== -->
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-box">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Memuat materi &amp; kuis...</div>
+    </div>
+</div>
+
 <div class="document-wrapper">
 
     <!-- ========================================================== -->
@@ -19,7 +29,7 @@
         <div class="header-doc">
             <div class="brand-area">
                 <div class="logo-placeholder">
-                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQGgtIM1qgfAMQ/profile-displayphoto-shrink_400_400/B4DZZsuJ.6HwAo-/0/1745580761606?e=2147483647&v=beta&t=wo9NmUZ9pZ7ef0b0Q7HMwqbDNBtkk8eBtha3bZMNjSg" 
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQGgtIM1qgfAMQ/profile-displayphoto-shrink_400_400/B4DZZsuJ.6HwAo-/0/1745580761606?e=2147483647&v=beta&t=wo9NmUZ9pZ7ef0b0Q7HMwqbDNBtkk8eBtha3bZMNjSg"
                          alt="Logo Perusahaan"
                          onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'logo-text\'><br>LOGO<br>PERUSAHAAN</span>';">
                 </div>
@@ -29,6 +39,7 @@
                     <div class="title-sub">Service SOP, Hospitality &amp; Operational Excellence</div>
                 </div>
             </div>
+            <button class="btn-auth" id="authButton">🔐 Login Admin</button>
         </div>
 
         <!-- TOP ACTIONS -->
@@ -65,153 +76,19 @@
         <div class="main-tab-content active" id="tabSOP">
             <div class="job-legend">
                 <span class="legend-title">📋 LEGEND JOBDESK :</span>
-                <span class="legend-item"><span class="legend-color lc-cashier"></span> Cashier (1-6)</span>
-                <span class="legend-item"><span class="legend-color lc-customer"></span> Customer (7)</span>
-                <span class="legend-item"><span class="legend-color lc-production"></span> Production (8)</span>
-                <span class="legend-item"><span class="legend-color lc-server"></span> Server (9-15)</span>
+                <span class="legend-item"><span class="legend-color lc-cashier"></span> Cashier</span>
+                <span class="legend-item"><span class="legend-color lc-customer"></span> Customer</span>
+                <span class="legend-item"><span class="legend-color lc-production"></span> Production</span>
+                <span class="legend-item"><span class="legend-color lc-server"></span> Server</span>
             </div>
 
             <div class="section-title">Alur Layanan Operasional Nara</div>
-            <div class="section-desc">Lima belas tahapan berikut adalah standar wajib yang membentuk pengalaman pelanggan Nara dari pintu masuk hingga meja kembali siap pakai — <strong>konsistensi di setiap tahap</strong> adalah kunci kualitas layanan kita. Klik pada card untuk melihat SOP lengkap dan script komunikasi.</div>
+            <div class="section-desc">Tahapan berikut adalah standar wajib yang membentuk pengalaman pelanggan Nara dari pintu masuk hingga meja kembali siap pakai — <strong>konsistensi di setiap tahap</strong> adalah kunci kualitas layanan kita. Klik pada card untuk melihat SOP lengkap dan script komunikasi.</div>
 
-            <!-- Step 1 -->
-            <div class="step-card group-cashier" onclick="openModal(1)">
-                <div class="step-number">01</div>
-                <div class="step-content">
-                    <div class="title-step">Greeting &amp; Sambutan</div>
-                    <div class="desc-step">Membentuk kesan pertama yang hangat dalam <strong>maksimal 5 detik</strong> sejak tamu terlihat memasuki area, dilanjutkan dengan pengenalan menu signature Nara — Mont Blanc, Butterscotch Sea Salt Latte, dan Ramen.</div>
-                    <div class="role-tag-group">
-                        <span class="role-tag role-tag-cashier">👤 Kasir</span>
-                        <span class="role-tag role-tag-barista">👤 Barista</span>
-                        <span class="role-tag role-tag-server">👤 Server</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Step 2 -->
-            <div class="step-card group-cashier" onclick="openModal(2)">
-                <div class="step-number">02</div>
-                <div class="step-content">
-                    <div class="title-step">Edukasi Menu</div>
-                    <div class="desc-step">Menguasai deskripsi rasa, tekstur, dan varian setiap menu andalan — <strong>Mont Blanc</strong>, <strong>Butterscotch</strong>, <strong>Ramen</strong>, Bolen, dan Roti Bakar — agar pelanggan menentukan pilihan dengan yakin, bukan menerka-nerka.</div>
-                    <span class="role-tag role-tag-single">👤 Kasir</span>
-                </div>
-            </div>
-            <!-- Step 3 -->
-            <div class="step-card group-cashier" onclick="openModal(3)">
-                <div class="step-number">03</div>
-                <div class="step-content">
-                    <div class="title-step">Upselling</div>
-                    <div class="desc-step">Meningkatkan nilai transaksi secara natural melalui penawaran <strong>extra shot</strong>, <strong>upgrade blend</strong> premium, dan menu pendamping — disampaikan sebagai rekomendasi konsultatif, bukan paksaan penjualan.</div>
-                    <span class="role-tag role-tag-single">👤 Kasir</span>
-                </div>
-            </div>
-            <!-- Step 4 -->
-            <div class="step-card group-cashier" onclick="openModal(4)">
-                <div class="step-number">04</div>
-                <div class="step-content">
-                    <div class="title-step">Konfirmasi Pemesanan</div>
-                    <div class="desc-step">Memastikan akurasi pesanan melalui <em>readback</em> wajib — varian, tingkat manis, blend, extra shot, hingga jenis Ramen — sebagai lini pertahanan utama pencegahan kesalahan order.</div>
-                    <span class="role-tag role-tag-single">👤 Kasir</span>
-                </div>
-            </div>
-            <!-- Step 5 -->
-            <div class="step-card group-cashier" onclick="openModal(5)">
-                <div class="step-number">05</div>
-                <div class="step-content">
-                    <div class="title-step">Pembayaran di Awal</div>
-                    <div class="desc-step">Memproses transaksi <em>prepaid</em> secara cepat, akurat, dan transparan melalui Cash, QRIS, atau EDC, dilengkapi <strong>struk</strong> dan <strong>nomor meja</strong> sebagai penanda pesanan.</div>
-                    <span class="role-tag role-tag-single">👤 Kasir</span>
-                </div>
-            </div>
-            <!-- Step 6 -->
-            <div class="step-card group-cashier" onclick="openModal(6)">
-                <div class="step-number">06</div>
-                <div class="step-content">
-                    <div class="title-step">Penyerahan Bill &amp; Nomor Meja</div>
-                    <div class="desc-step">Menyampaikan instruksi lanjutan secara jelas — status <strong>diantar ke meja</strong> (dine-in) atau <strong>dibungkus di kasir</strong> (take away) — agar pelanggan tidak dibiarkan menerka proses berikutnya.</div>
-                    <span class="role-tag role-tag-single">👤 Kasir</span>
-                </div>
-            </div>
-            <!-- Step 7 -->
-            <div class="step-card group-customer" onclick="openModal(7)">
-                <div class="step-number">07</div>
-                <div class="step-content">
-                    <div class="title-step">Pelanggan Duduk &amp; Display Nomor Meja</div>
-                    <div class="desc-step">Memastikan nomor meja terpasang tegak dan mudah terlihat oleh tim produksi, sehingga setiap pesanan tersalurkan tepat kepada tamu yang berhak menerimanya.</div>
-                    <span class="role-tag role-tag-single">👤 Customer Journey</span>
-                </div>
-            </div>
-            <!-- Step 8 -->
-            <div class="step-card group-production" onclick="openModal(8)">
-                <div class="step-number">08</div>
-                <div class="step-content">
-                    <div class="title-step">Produksi</div>
-                    <div class="desc-step">Menjaga konsistensi rasa dan tampilan setiap sajian sesuai resep standar — foam rapi, layering presisi, plating konsisten — dengan <strong>Mont Blanc wajib sampai ke meja dalam 3 menit</strong> sejak selesai dibuat.</div>
-                    <span class="role-tag role-tag-single">👤 Production</span>
-                </div>
-            </div>
-            <!-- Step 9 -->
-            <div class="step-card group-server" onclick="openModal(9)">
-                <div class="step-number">09</div>
-                <div class="step-content">
-                    <div class="title-step">Quality Check</div>
-                    <div class="desc-step">Bertindak sebagai filter kualitas terakhir sebelum produk meninggalkan pass counter — memastikan tampilan, kelengkapan topping, dan kesesuaian pesanan sebelum diantar ke tamu.</div>
-                    <span class="role-tag role-tag-single">👤 Server</span>
-                </div>
-            </div>
-            <!-- Step 10 -->
-            <div class="step-card group-server" onclick="openModal(10)">
-                <div class="step-number">10</div>
-                <div class="step-content">
-                    <div class="title-step">Persiapan Cutleries</div>
-                    <div class="desc-step">Melengkapi peralatan makan sesuai jenis pesanan — termasuk sumpit untuk Ramen — agar tamu dapat langsung menikmati sajian tanpa harus meminta tambahan.</div>
-                    <span class="role-tag role-tag-single">👤 Server</span>
-                </div>
-            </div>
-            <!-- Step 11 -->
-            <div class="step-card group-server" onclick="openModal(11)">
-                <div class="step-number">11</div>
-                <div class="step-content">
-                    <div class="title-step">Pengantaran Pesanan</div>
-                    <div class="desc-step">Mengantarkan pesanan secara cepat dan aman ke nomor meja yang tepat, disertai informasi singkat — foam Mont Blanc yang perlu segera dinikmati, atau peringatan bahwa Ramen masih panas.</div>
-                    <span class="role-tag role-tag-single">👤 Server</span>
-                </div>
-            </div>
-            <!-- Step 12 -->
-            <div class="step-card group-server" onclick="openModal(12)">
-                <div class="step-number">12</div>
-                <div class="step-content">
-                    <div class="title-step">Floor Patrol</div>
-                    <div class="desc-step">Menjaga kenyamanan seluruh area secara proaktif melalui inspeksi rutin <strong>setiap 3-5 menit</strong>, sekaligus mendeteksi kebutuhan tamu sebelum mereka harus memanggil staf.</div>
-                    <span class="role-tag role-tag-single">👤 Server</span>
-                </div>
-            </div>
-            <!-- Step 13 -->
-            <div class="step-card group-server" onclick="openModal(13)">
-                <div class="step-number">13</div>
-                <div class="step-content">
-                    <div class="title-step">Bussing (Clearance) Meja</div>
-                    <div class="desc-step">Menerapkan prinsip <strong>clear-as-you-go</strong> untuk menjaga area dine-in tetap rapi dan siap pakai, tanpa mengganggu kenyamanan tamu yang masih menikmati sajian.</div>
-                    <span class="role-tag role-tag-single">👤 Server</span>
-                </div>
-            </div>
-            <!-- Step 14 -->
-            <div class="step-card group-server" onclick="openModal(14)">
-                <div class="step-number">14</div>
-                <div class="step-content">
-                    <div class="title-step">Deteksi Kepergian Pelanggan</div>
-                    <div class="desc-step">Menutup pengalaman pelanggan dengan kesan positif melalui ucapan terima kasih yang tepat waktu, sekaligus mempercepat kesiapan meja untuk tamu berikutnya.</div>
-                    <span class="role-tag role-tag-single">👤 Server / FOH</span>
-                </div>
-            </div>
-            <!-- Step 15 -->
-            <div class="step-card group-server" onclick="openModal(15)">
-                <div class="step-number">15</div>
-                <div class="step-content">
-                    <div class="title-step">Reset Meja (Turnaround)</div>
-                    <div class="desc-step">Mengembalikan meja ke kondisi siap pakai — sanitasi, penataan ulang peralatan makan, dan pemeriksaan lantai — dalam target waktu maksimal <strong>2 menit</strong>.</div>
-                    <span class="role-tag role-tag-single">👤 Server</span>
-                </div>
+            <button class="btn-admin-add admin-only" onclick="openStepForm(null)">+ Tambah SOP Step Baru</button>
+
+            <div id="stepCardsContainer">
+                <!-- Diisi otomatis oleh js/render.js dari data Supabase -->
             </div>
 
             <div class="glossary-box">
@@ -238,40 +115,9 @@
         <!-- ========================================================== -->
         <div class="main-tab-content" id="tabOperational">
             <div class="section-title">SOP Operasional — Tugas &amp; Tanggung Jawab</div>
-            <div class="section-desc">Uraian tugas dan tanggung jawab per posisi FOH dan Produksi, sebagai acuan kejelasan peran agar setiap anggota tim memahami kontribusinya terhadap kelancaran operasional. Klik pada card untuk melihat materi lengkap.</div>
-
-            <div class="material-card group-operational" onclick="openMaterialModal('operational_kasir')">
-                <div class="material-number">01</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Tugas &amp; Tanggung Jawab Kasir</div>
-                    <div class="desc-material">Menjadi wajah pertama sekaligus pengelola transaksi Nara — menguasai menu, memproses pembayaran secara akurat, dan menjembatani komunikasi antara pelanggan dengan tim produksi.</div>
-                    <span class="material-tag">🧾 Kasir</span>
-                </div>
-            </div>
-            <div class="material-card group-operational" onclick="openMaterialModal('operational_barista')">
-                <div class="material-number">02</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Tugas &amp; Tanggung Jawab Barista</div>
-                    <div class="desc-material">Menjaga konsistensi rasa dan tampilan setiap signature drink sesuai resep standar Nara, dengan kecepatan produksi dan kebersihan bar area sebagai tolok ukur profesionalisme.</div>
-                    <span class="material-tag">☕ Barista</span>
-                </div>
-            </div>
-            <div class="material-card group-operational" onclick="openMaterialModal('operational_server')">
-                <div class="material-number">03</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Tugas &amp; Tanggung Jawab Server</div>
-                    <div class="desc-material">Menjaga ritme pengalaman pelanggan di lantai — dari pengantaran pesanan, inspeksi area, hingga turnaround meja — dengan kecepatan dan ketelitian sebagai prioritas utama.</div>
-                    <span class="material-tag">🛎️ Server</span>
-                </div>
-            </div>
-            <div class="material-card group-operational" onclick="openMaterialModal('operational_kitchen')">
-                <div class="material-number">04</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Tugas &amp; Tanggung Jawab Kitchen</div>
-                    <div class="desc-material">Menyiapkan menu makanan utama sesuai standar resep, porsi, dan plating, serta menjaga ketepatan waktu produksi agar kualitas sajian tetap terjaga saat sampai ke meja tamu.</div>
-                    <span class="material-tag">🍳 Kitchen</span>
-                </div>
-            </div>
+            <div class="section-desc">Uraian tugas dan tanggung jawab per posisi FOH dan Produksi. Klik pada card untuk melihat materi lengkap.</div>
+            <button class="btn-admin-add admin-only" onclick="addMaterialInCategory('operational')">+ Tambah Materi Baru</button>
+            <div id="materialCardsContainer_operational"></div>
         </div>
 
         <!-- ========================================================== -->
@@ -279,64 +125,9 @@
         <!-- ========================================================== -->
         <div class="main-tab-content" id="tabHospitality">
             <div class="section-title">Dasar-Dasar Hospitality Nara</div>
-            <div class="section-desc">Fondasi sikap dan perilaku yang membedakan pelayanan biasa dengan pengalaman berkelas khas Nara — dari prinsip dasar hingga praktik yang bisa langsung diterapkan setiap shift. Klik pada card untuk melihat materi lengkap.</div>
-
-            <div class="material-card group-hospitality" onclick="openMaterialModal('hospitality_golden')">
-                <div class="material-number">01</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Golden Rule</div>
-                    <div class="desc-material">Fondasi seluruh interaksi di Nara — memandang setiap tamu sebagai individu yang berhak mendapat perlakuan setulus yang kita harapkan untuk diri sendiri.</div>
-                    <span class="material-tag">🌟 Empati</span>
-                </div>
-            </div>
-            <div class="material-card group-hospitality" onclick="openMaterialModal('hospitality_components')">
-                <div class="material-number">02</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Komponen Utama</div>
-                    <div class="desc-material">Enam pilar pelayanan berkelas — senyum, komunikasi, inisiatif, konsistensi, personalisasi, dan perhatian detail — yang saling melengkapi di setiap interaksi dengan tamu.</div>
-                    <span class="material-tag">🌟 6 Komponen</span>
-                </div>
-            </div>
-            <div class="material-card group-hospitality" onclick="openMaterialModal('hospitality_recovery')">
-                <div class="material-number">03</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Service Recovery</div>
-                    <div class="desc-material">Mengubah momen kesalahan menjadi kesempatan membangun loyalitas — melalui alur mendengarkan, empati, permintaan maaf tulus, dan solusi yang konkret.</div>
-                    <span class="material-tag">🔄 Pemulihan</span>
-                </div>
-            </div>
-            <div class="material-card group-hospitality" onclick="openMaterialModal('hospitality_listening')">
-                <div class="material-number">04</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Active Listening</div>
-                    <div class="desc-material">Keterampilan mendengarkan penuh perhatian dan memvalidasi pemahaman melalui paraphrase, sehingga kebutuhan dan keluhan tamu tertangkap secara akurat sejak awal.</div>
-                    <span class="material-tag">👂 Komunikasi</span>
-                </div>
-            </div>
-            <div class="material-card group-hospitality" onclick="openMaterialModal('hospitality_hygiene')">
-                <div class="material-number">05</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Penampilan & Hygiene</div>
-                    <div class="desc-material">Standar penampilan diri yang mencerminkan profesionalisme Nara — dari kerapian seragam hingga kebersihan tangan — sebagai kesan visual pertama bagi setiap tamu.</div>
-                    <span class="material-tag">🧼 Kebersihan Diri</span>
-                </div>
-            </div>
-            <div class="material-card group-hospitality" onclick="openMaterialModal('hospitality_etika')">
-                <div class="material-number">06</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Etika Komunikasi</div>
-                    <div class="desc-material">Standar bahasa dan sikap profesional dalam setiap interaksi — sopan, terkendali, dan bebas dari nada defensif, bahkan saat menghadapi situasi yang menantang.</div>
-                    <span class="material-tag">🗣️ Etika</span>
-                </div>
-            </div>
-            <div class="material-card group-hospitality" onclick="openMaterialModal('hospitality_tips')">
-                <div class="material-number">07</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Tips Praktis Nara</div>
-                    <div class="desc-material">Kumpulan praktik terbaik berbasis standar industri hospitality — 10-5 Rule, checkback, dan antisipasi kebutuhan — yang siap diterapkan di setiap shift.</div>
-                    <span class="material-tag">💡 Tips</span>
-                </div>
-            </div>
+            <div class="section-desc">Fondasi sikap dan perilaku yang membedakan pelayanan biasa dengan pengalaman berkelas khas Nara. Klik pada card untuk melihat materi lengkap.</div>
+            <button class="btn-admin-add admin-only" onclick="addMaterialInCategory('hospitality')">+ Tambah Materi Baru</button>
+            <div id="materialCardsContainer_hospitality"></div>
         </div>
 
         <!-- ========================================================== -->
@@ -344,170 +135,29 @@
         <!-- ========================================================== -->
         <div class="main-tab-content" id="tabFoodSafety">
             <div class="section-title">Food Safety Nara</div>
-            <div class="section-desc">Standar keamanan pangan yang wajib dikuasai seluruh crew FOH untuk melindungi kesehatan pelanggan sekaligus menjaga reputasi kualitas Nara. Klik pada card untuk melihat materi lengkap.</div>
-
-            <div class="material-card group-foodsafety" onclick="openMaterialModal('food_carry')">
-                <div class="material-number">01</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Cara Membawa Piring & Gelas</div>
-                    <div class="desc-material">Teknik membawa sajian yang benar guna mencegah kontaminasi silang — memegang piring dan gelas dari sisi luar, jauh dari area yang bersentuhan langsung dengan makanan atau mulut tamu.</div>
-                    <span class="material-tag">🍽️ Teknik</span>
-                </div>
-            </div>
-            <div class="material-card group-foodsafety" onclick="openMaterialModal('food_allergen')">
-                <div class="material-number">02</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Penanganan Alergen</div>
-                    <div class="desc-material">Protokol wajib saat tamu menyebutkan riwayat alergi — konfirmasi ke dapur sebelum menjawab, dan tidak pernah menjamin keamanan menu tanpa kepastian dari tim produksi.</div>
-                    <span class="material-tag">⚠️ Alergen</span>
-                </div>
-            </div>
-            <div class="material-card group-foodsafety" onclick="openMaterialModal('food_temperature')">
-                <div class="material-number">03</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Suhu & Ketepatan</div>
-                    <div class="desc-material">Standar waktu dan suhu penyajian yang menjaga kualitas rasa sekaligus keamanan pangan — signature drink dan makanan panas harus sampai ke tamu dalam kondisi optimal.</div>
-                    <span class="material-tag">🌡️ Suhu</span>
-                </div>
-            </div>
-            <div class="material-card group-foodsafety" onclick="openMaterialModal('food_hygiene')">
-                <div class="material-number">04</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Personal Hygiene</div>
-                    <div class="desc-material">Kebersihan diri sebagai lini pertahanan pertama keamanan pangan — cuci tangan rutin, penggunaan hand sanitizer, dan kedisiplinan menjaga kontak tangan dengan wajah.</div>
-                    <span class="material-tag">🧼 Hygiene</span>
-                </div>
-            </div>
-            <div class="material-card group-foodsafety" onclick="openMaterialModal('food_sanitasi')">
-                <div class="material-number">05</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Sanitasi & Kontaminasi</div>
-                    <div class="desc-material">Mencegah kontaminasi silang antar area dan jenis makanan melalui penggunaan food-grade sanitizer serta pemisahan alat kebersihan sesuai fungsinya.</div>
-                    <span class="material-tag">🧹 Sanitasi</span>
-                </div>
-            </div>
+            <div class="section-desc">Standar keamanan pangan yang wajib dikuasai seluruh crew FOH. Klik pada card untuk melihat materi lengkap.</div>
+            <button class="btn-admin-add admin-only" onclick="addMaterialInCategory('foodsafety')">+ Tambah Materi Baru</button>
+            <div id="materialCardsContainer_foodsafety"></div>
         </div>
 
         <!-- ========================================================== -->
-        <!-- TAB 5 : CLEANING (dengan teknik lap S-Pattern dan pisah toilet/komunal) -->
+        <!-- TAB 5 : CLEANING -->
         <!-- ========================================================== -->
         <div class="main-tab-content" id="tabCleaning">
-            <div class="section-title">Prosedur Pembersihan Nara</div>
-            <div class="section-desc">Prosedur kebersihan menyeluruh untuk setiap area Nara — meja, kaca, lantai, hingga toilet — sebagai standar minimum kenyamanan yang berhak diterima setiap tamu. Klik pada card untuk melihat materi lengkap.</div>
-
-            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_meja')">
-                <div class="material-number">01</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Pembersihan Meja & Kursi</div>
-                    <div class="desc-material">Prosedur tujuh langkah untuk mengembalikan meja ke kondisi siap pakai — dari bussing hingga sanitasi dengan teknik <strong>S-Pattern</strong> — dalam target waktu maksimal 2 menit.</div>
-                    <span class="material-tag">🪑 Meja</span>
-                </div>
-            </div>
-            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_kaca')">
-                <div class="material-number">02</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Pembersihan Kaca</div>
-                    <div class="desc-material">Teknik membersihkan kaca hingga bening tanpa bekas usap, karena kejernihan kaca sering menjadi kesan pertama kerapian Nara di mata pelanggan.</div>
-                    <span class="material-tag">🪟 Kaca</span>
-                </div>
-            </div>
-            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_langit')">
-                <div class="material-number">03</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Langit-Langit, Dinding & Sudut</div>
-                    <div class="desc-material">Perawatan area tinggi yang mudah terlewat namun tetap terlihat oleh tamu — sarang laba-laba, debu, dan kebersihan ventilasi diperiksa secara berkala.</div>
-                    <span class="material-tag">🏗️ Langit-langit</span>
-                </div>
-            </div>
-            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_lantai')">
-                <div class="material-number">04</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Pembersihan Lantai</div>
-                    <div class="desc-material">Standar kebersihan lantai indoor dan outdoor yang menjaga keamanan sekaligus kenyamanan — bebas debu, tumpahan, dan risiko licin bagi tamu maupun staf.</div>
-                    <span class="material-tag">🧹 Lantai</span>
-                </div>
-            </div>
-            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_toilet')">
-                <div class="material-number">05</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Pembersihan Toilet (2 Toilet)</div>
-                    <div class="desc-material">Pemeriksaan berkala setiap 30-60 menit untuk memastikan kebersihan dan kelengkapan fasilitas toilet tetap terjaga sepanjang jam operasional.</div>
-                    <span class="material-tag">🚽 Toilet</span>
-                </div>
-            </div>
-            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_komunal')">
-                <div class="material-number">06</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Pembersihan Area Komunal</div>
-                    <div class="desc-material">Menjaga kenyamanan area berbagi — meja komunal, sofa tunggu, dan rak majalah — tetap bersih dan tertata bagi seluruh tamu yang menggunakannya.</div>
-                    <span class="material-tag">🛋️ Komunal</span>
-                </div>
-            </div>
-            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_peralatan')">
-                <div class="material-number">07</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Peralatan &amp; Bahan Pembersih</div>
-                    <div class="desc-material">Standar peralatan dan bahan kebersihan Nara, termasuk pemisahan fungsi lap berdasarkan area, guna menjaga efektivitas kerja sekaligus mencegah kontaminasi silang.</div>
-                    <span class="material-tag">🧺 Peralatan</span>
-                </div>
-            </div>
-            <div class="material-card group-cleaning" onclick="openMaterialModal('clean_tanaman')">
-                <div class="material-number">08</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Perawatan Tanaman</div>
-                    <div class="desc-material">Rutinitas perawatan tanaman dekoratif setiap pagi sebelum operasional, menjaga suasana Nara tetap segar dan estetika ruang tetap terjaga sepanjang hari.</div>
-                    <span class="material-tag">🌿 Tanaman</span>
-                </div>
-            </div>
+            <div class="section-title">Cleaning &amp; Kebersihan Area</div>
+            <div class="section-desc">Standar kebersihan setiap area Nara. Klik pada card untuk melihat materi lengkap.</div>
+            <button class="btn-admin-add admin-only" onclick="addMaterialInCategory('cleaning')">+ Tambah Materi Baru</button>
+            <div id="materialCardsContainer_cleaning"></div>
         </div>
 
         <!-- ========================================================== -->
-        <!-- TAB 6 : KOMPLAIN (urutan: 1. LEARN, 2. Kasus, 3. Larangan, 4. Tabel, 5. Tips) -->
+        <!-- TAB 6 : KOMPLAIN -->
         <!-- ========================================================== -->
         <div class="main-tab-content" id="tabComplaint">
             <div class="section-title">Penanganan Komplain &amp; Service Recovery</div>
-            <div class="section-desc">Kerangka kerja dan referensi praktis untuk mengubah keluhan pelanggan menjadi kesempatan menunjukkan profesionalisme dan memperkuat loyalitas terhadap Nara. Klik pada card untuk melihat materi lengkap.</div>
-
-            <div class="material-card group-complaint" onclick="openMaterialModal('complaint_learn')">
-                <div class="material-number">01</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Metode LEARN</div>
-                    <div class="desc-material">Kerangka kerja lima langkah — Listen, Empathize, Apologize, Resolve, Notify — sebagai standar profesional Nara dalam menangani setiap keluhan pelanggan.</div>
-                    <span class="material-tag">📖 LEARN</span>
-                </div>
-            </div>
-            <div class="material-card group-complaint" onclick="openMaterialModal('complaint_kasus')">
-                <div class="material-number">02</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Contoh Kasus &amp; Solusi</div>
-                    <div class="desc-material">Studi kasus komplain yang paling sering terjadi — dari rasa yang tidak sesuai hingga pesanan terlambat — lengkap dengan pendekatan solusi yang telah terbukti efektif.</div>
-                    <span class="material-tag">📌 Kasus</span>
-                </div>
-            </div>
-            <div class="material-card group-complaint" onclick="openMaterialModal('complaint_larangan')">
-                <div class="material-number">03</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Hal yang Tidak Boleh Dilakukan</div>
-                    <div class="desc-material">Daftar sikap yang wajib dihindari saat menghadapi keluhan, karena berpotensi memperbesar ketidakpuasan alih-alih meredakannya.</div>
-                    <span class="material-tag">🚫 Larangan</span>
-                </div>
-            </div>
-            <div class="material-card group-complaint" onclick="openMaterialModal('complaint_tabel')">
-                <div class="material-number">04</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Tabel Komplain Umum Nara</div>
-                    <div class="desc-material">Referensi cepat tujuh kategori komplain paling umum di Nara, lengkap dengan langkah solusi dan penanggung jawab (PIC) untuk setiap kasus.</div>
-                    <span class="material-tag">📋 Tabel</span>
-                </div>
-            </div>
-            <div class="material-card group-complaint" onclick="openMaterialModal('complaint_tips')">
-                <div class="material-number">05</div>
-                <div class="material-content-summary">
-                    <div class="title-material">Tips Tambahan</div>
-                    <div class="desc-material">Prinsip tambahan untuk menjaga profesionalisme di situasi bertekanan — ketenangan, eskalasi yang tepat, dan pencatatan komplain sebagai bahan evaluasi tim.</div>
-                    <span class="material-tag">💡 Tips</span>
-                </div>
-            </div>
+            <div class="section-desc">Kerangka kerja dan referensi praktis penanganan keluhan pelanggan. Klik pada card untuk melihat materi lengkap.</div>
+            <button class="btn-admin-add admin-only" onclick="addMaterialInCategory('complaint')">+ Tambah Materi Baru</button>
+            <div id="materialCardsContainer_complaint"></div>
         </div>
 
         <!-- FOOTER -->
@@ -524,9 +174,11 @@
         <div class="quiz-tab-header">
             <div>
                 <h2 style="font-size: 24px; font-weight: 700; color: #0a1a2b;">📝 Kuis Evaluasi Training</h2>
-                <p style="color: #3d5166; font-size: 14px;">Isi nama dan job role, pilih topik kuis, lalu jawab 25 pertanyaan.</p>
+                <p style="color: #3d5166; font-size: 14px;">Isi nama dan job role, pilih topik kuis, lalu jawab pertanyaan.</p>
             </div>
             <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                <button class="btn-quiz-toggle secondary admin-only" onclick="openQuizManage()">🛠️ Kelola Soal</button>
+                <button class="btn-quiz-toggle secondary admin-only" onclick="openQuizResults()">📊 Hasil Peserta</button>
                 <button class="btn-quiz-toggle secondary" onclick="showSOP()">← Kembali ke Materi</button>
                 <div class="quiz-tab-group" id="quizTabGroup">
                     <button class="btn-quiz-toggle active-tab" onclick="showQuizTab(1)">Kuis 1</button>
@@ -589,11 +241,15 @@
                     <div class="script-box"><p><span class="speaker">Contoh :</span> "Script akan muncul di sini."</p></div>
                 </div>
             </div>
+            <div class="modal-admin-actions admin-only">
+                <button class="btn-admin-edit" id="modalEditBtn">✏️ Edit</button>
+                <button class="btn-admin-delete" id="modalDeleteBtn">🗑️ Hapus</button>
+            </div>
         </div>
     </div>
 
     <!-- ========================================================== -->
-    <!-- MODAL MATERI (untuk tab 2-5) -->
+    <!-- MODAL MATERI (untuk tab 2-6) -->
     <!-- ========================================================== -->
     <div class="modal-overlay" id="materialModal" onclick="closeMaterialModalOutside(event)">
         <div class="modal-box" id="materialModalBox">
@@ -616,6 +272,10 @@
                 <div id="materialScriptContent">
                     <div class="script-box"><p><span class="speaker">Contoh :</span> "Script atau contoh akan muncul di sini."</p></div>
                 </div>
+            </div>
+            <div class="modal-admin-actions admin-only">
+                <button class="btn-admin-edit" id="materialEditBtn">✏️ Edit</button>
+                <button class="btn-admin-delete" id="materialDeleteBtn">🗑️ Hapus</button>
             </div>
         </div>
     </div>
@@ -651,15 +311,78 @@
         </div>
     </div>
 
+    <!-- ========================================================== -->
+    <!-- MODAL LOGIN ADMIN -->
+    <!-- ========================================================== -->
+    <div class="modal-overlay" id="loginModal" onclick="closeLoginModalOutside(event)">
+        <div class="modal-box" style="max-width: 400px;">
+            <button class="modal-close" onclick="closeLoginModal()">✕</button>
+            <div class="modal-title">🔐 Login Admin</div>
+            <div class="modal-role">Khusus author/admin materi &amp; kuis</div>
+            <div class="admin-form">
+                <label>Email<input type="email" id="loginEmail" placeholder="email@nara.com"></label>
+                <label>Password<input type="password" id="loginPassword" placeholder="••••••••"></label>
+                <div class="form-error" id="loginError"></div>
+            </div>
+            <div class="admin-form-actions">
+                <button class="btn-cancel" onclick="closeLoginModal()">Batal</button>
+                <button class="btn-confirm" id="loginSubmitBtn" onclick="handleLoginSubmit()">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- MODAL FORM ADMIN (generik, dipakai untuk Step/Materi/Soal) -->
+    <!-- ========================================================== -->
+    <div class="modal-overlay" id="adminFormModal" onclick="closeAdminFormOutside(event)">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeAdminForm()">✕</button>
+            <div class="modal-title" id="adminFormTitle">Form</div>
+            <div class="admin-form" id="adminFormFields"></div>
+            <div class="admin-form-actions">
+                <button class="btn-cancel" onclick="closeAdminForm()">Batal</button>
+                <button class="btn-confirm" id="adminFormSaveBtn">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- MODAL KELOLA SOAL KUIS -->
+    <!-- ========================================================== -->
+    <div class="modal-overlay" id="quizManageModal" onclick="closeQuizManageOutside(event)">
+        <div class="modal-box" style="max-width: 640px;">
+            <button class="modal-close" onclick="closeQuizManage()">✕</button>
+            <div class="modal-title">🛠️ Kelola Soal Kuis</div>
+            <div class="quiz-manage-tabs" id="quizManageTabs"></div>
+            <div id="quizManageList" class="quiz-manage-list"></div>
+        </div>
+    </div>
+
+    <!-- ========================================================== -->
+    <!-- MODAL HASIL KUIS PESERTA -->
+    <!-- ========================================================== -->
+    <div class="modal-overlay" id="quizResultsModal" onclick="closeQuizResultsOutside(event)">
+        <div class="modal-box" style="max-width: 720px;">
+            <button class="modal-close" onclick="closeQuizResults()">✕</button>
+            <div class="modal-title">📊 Hasil Kuis Peserta</div>
+            <div id="quizResultsList"></div>
+        </div>
+    </div>
+
 </div>
 
 <!-- ========================================================== -->
-<!-- JAVASCRIPT (modular) -->
+<!-- JAVASCRIPT -->
 <!-- ========================================================== -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/render.js"></script>
 <script src="js/data.js"></script>
 <script src="js/modals.js"></script>
 <script src="js/tabs.js"></script>
 <script src="js/quiz.js"></script>
+<script src="js/admin.js"></script>
 <script src="js/main.js"></script>
 
 </body>

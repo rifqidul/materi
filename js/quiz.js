@@ -109,6 +109,7 @@
             3: foodSafetyQuestionsData, 4: cleaningQuestionsData,
             5: complaintQuestionsData
         };
+        const categoryMap = { 1: 'sop', 2: 'hospitality', 3: 'foodsafety', 4: 'cleaning', 5: 'complaint' };
         const questions = questionsMap[quizNumber];
         if (!questions) return;
 
@@ -137,6 +138,20 @@
             4: 'Kuis 4 (Cleaning)',
             5: 'Kuis 5 (Komplain)'
         };
+
+        // Simpan hasil ke Supabase (tidak menghambat tampilan hasil ke user)
+        if (typeof sb !== 'undefined') {
+            sb.from('quiz_results').insert({
+                participant: name,
+                job_role: role,
+                category: categoryMap[quizNumber],
+                score: correct,
+                total: total
+            }).then(({ error }) => {
+                if (error) console.error('Gagal menyimpan hasil kuis:', error);
+            });
+        }
+
         showResultModal(name, role, correct, total, quizNames[quizNumber]);
         pendingQuizNumber = null;
     }

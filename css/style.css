@@ -363,3 +363,124 @@
             .complain-table { font-size: 11px; }
             .complain-table th, .complain-table td { padding: 5px 6px; }
         }
+
+/* =============================================================
+   TAMBAHAN: LOGIN, ADMIN CRUD, LOADING OVERLAY
+   ============================================================= */
+
+/* ---- Loading overlay ---- */
+.loading-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(10, 26, 43, 0.92);
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity 0.25s ease;
+}
+.loading-overlay.hidden { display: none; }
+.loading-overlay.is-error .loading-box { max-width: 480px; }
+.loading-box { text-align: center; color: #fff; padding: 20px; }
+.loading-spinner {
+    width: 46px; height: 46px; margin: 0 auto 16px auto;
+    border: 4px solid rgba(255,255,255,0.25);
+    border-top-color: #c9a84c;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text { font-size: 15px; line-height: 1.6; }
+
+/* ---- Login button di header ---- */
+.btn-auth {
+    background: #0a1a2b; color: #fff; border: none;
+    padding: 10px 18px; border-radius: 100px; font-size: 13px; font-weight: 600;
+    cursor: pointer; white-space: nowrap; align-self: flex-start;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+.btn-auth:hover { background: #1e3347; transform: translateY(-1px); }
+
+/* ---- Elemen khusus admin: sembunyi kecuali body.is-admin ---- */
+.admin-only { display: none; }
+body.is-admin .admin-only { display: inline-flex; }
+body.is-admin .modal-admin-actions.admin-only { display: flex; }
+
+.btn-admin-add {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #eef8ef; color: #1c7a37; border: 1px dashed #1c7a37;
+    padding: 9px 16px; border-radius: 10px; font-size: 13px; font-weight: 600;
+    cursor: pointer; margin-bottom: 16px;
+    transition: background 0.2s ease;
+}
+.btn-admin-add:hover { background: #dcf3df; }
+
+.modal-admin-actions {
+    display: none; gap: 10px; margin-top: 20px;
+    padding-top: 16px; border-top: 1px dashed #dbe3ee;
+}
+.btn-admin-edit, .btn-admin-delete {
+    flex: 1; padding: 10px 14px; border-radius: 10px; border: none;
+    font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.btn-admin-edit { background: #eef3f9; color: #0a1a2b; }
+.btn-admin-edit:hover { background: #dce3ec; }
+.btn-admin-delete { background: #fdecec; color: #b3261e; }
+.btn-admin-delete:hover { background: #f9d3d1; }
+
+/* ---- Form admin (login, tambah/edit step/materi/soal) ---- */
+.admin-form { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; }
+.admin-form label {
+    display: flex; flex-direction: column; gap: 6px;
+    font-size: 13px; font-weight: 600; color: #1e2b3c;
+}
+.admin-form input[type="text"],
+.admin-form input[type="number"],
+.admin-form input[type="email"],
+.admin-form input[type="password"],
+.admin-form select,
+.admin-form textarea {
+    font-family: inherit; font-size: 14px; font-weight: 400;
+    padding: 10px 12px; border: 1px solid #d7dfea; border-radius: 8px;
+    color: #1e2b3c; resize: vertical;
+}
+.admin-form input:focus, .admin-form select:focus, .admin-form textarea:focus {
+    outline: none; border-color: #c9a84c; box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+}
+.admin-form-actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 20px; }
+.admin-form-actions .btn-cancel, .admin-form-actions .btn-confirm {
+    padding: 10px 20px; border-radius: 10px; border: none; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.admin-form-actions .btn-cancel { background: #eef3f9; color: #1e2b3c; }
+.admin-form-actions .btn-cancel:hover { background: #dce3ec; }
+.admin-form-actions .btn-confirm { background: #c9a84c; color: #0a1a2b; }
+.admin-form-actions .btn-confirm:hover { background: #b8962a; }
+.form-error { color: #b3261e; font-size: 13px; font-weight: 600; min-height: 16px; }
+
+/* ---- Kelola Soal Kuis ---- */
+.quiz-manage-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
+.quiz-manage-tabs button {
+    background: #eef3f9; color: #1e2b3c; border: none;
+    padding: 8px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; cursor: pointer;
+}
+.quiz-manage-tabs button.active-tab { background: #0a1a2b; color: #fff; }
+.quiz-manage-list { display: flex; flex-direction: column; gap: 10px; max-height: 50vh; overflow-y: auto; }
+.quiz-manage-item {
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+    padding: 12px 14px; background: #f8faff; border-radius: 10px;
+}
+.quiz-manage-q { font-size: 13px; color: #1e2b3c; line-height: 1.5; }
+.quiz-manage-actions { display: flex; gap: 6px; flex-shrink: 0; }
+.quiz-manage-actions button {
+    background: #fff; border: 1px solid #d7dfea; border-radius: 8px;
+    padding: 6px 10px; cursor: pointer; font-size: 14px;
+}
+
+/* ---- Hasil kuis peserta (tabel) ---- */
+.quiz-results-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 13px; }
+.quiz-results-table th, .quiz-results-table td {
+    text-align: left; padding: 8px 10px; border-bottom: 1px solid #eef3f9;
+}
+.quiz-results-table th { color: #0a1a2b; font-weight: 700; }
+.empty-state { color: #6b7a8d; font-size: 14px; padding: 20px 0; text-align: center; }
+
+@media (max-width: 850px) {
+    .header-doc { position: relative; }
+    .btn-auth { align-self: flex-end; }
+}
