@@ -7,6 +7,72 @@ function escAttr(s) {
 }
 
 // -------------------------------------------------------------
+// RICH TEXT EDITOR (pengganti textarea HTML mentah)
+// Dipakai untuk field SOP / Materi yang butuh formatting
+// (bold, italic, list, dsb) tanpa mengharuskan admin menulis tag HTML.
+// -------------------------------------------------------------
+function richEditorHTML(fieldId, initialHtml, opts) {
+    opts = opts || {};
+    const placeholder = opts.placeholder || 'Tulis isi di sini...';
+    const sizeClass = opts.small ? ' small' : '';
+    const content = (initialHtml && initialHtml.trim()) ? initialHtml : '';
+    return `
+        <div class="rich-editor-wrap" data-field="${fieldId}">
+            <div class="rich-editor-toolbar">
+                <button type="button" data-cmd="bold" title="Tebal (Bold)"><b>B</b></button>
+                <button type="button" data-cmd="italic" title="Miring (Italic)"><i>I</i></button>
+                <button type="button" data-cmd="underline" title="Garis Bawah"><u>U</u></button>
+                <span class="sep"></span>
+                <button type="button" data-cmd="insertUnorderedList" title="Bullet List">• ≡</button>
+                <button type="button" data-cmd="insertOrderedList" title="Numbered List">1. ≡</button>
+                <span class="sep"></span>
+                <button type="button" data-cmd="formatBlock" data-value="H4" title="Judul Kecil">H</button>
+                <button type="button" data-cmd="formatBlock" data-value="P" title="Paragraf Biasa">¶</button>
+                <span class="sep"></span>
+                <button type="button" data-cmd="createLink" title="Sisipkan Link">🔗</button>
+                <button type="button" data-cmd="removeFormat" title="Hapus Formatting">⨯</button>
+            </div>
+            <div class="rich-editor-area${sizeClass}" id="${fieldId}_area" contenteditable="true" data-placeholder="${escAttr(placeholder)}">${content}</div>
+        </div>
+    `;
+}
+
+function richEditorValue(fieldId) {
+    const el = document.getElementById(fieldId + '_area');
+    if (!el) return '';
+    const html = el.innerHTML.trim();
+    // Anggap kosong kalau isinya cuma <br> atau tag kosong dari contenteditable
+    if (!html || html === '<br>' || html === '<p><br></p>') return '';
+    return html;
+}
+
+// Event delegation: tombol toolbar rich editor ada di dalam #adminFormFields
+// yang isinya dibangun ulang setiap kali form admin dibuka, jadi listener
+// dipasang sekali saja di parent yang selalu ada di DOM.
+document.addEventListener('DOMContentLoaded', function () {
+    const fieldsHost = document.getElementById('adminFormFields');
+    if (!fieldsHost) return;
+    fieldsHost.addEventListener('mousedown', function (e) {
+        // mousedown (bukan click) supaya selection di editor tidak hilang duluan
+        const btn = e.target.closest('.rich-editor-toolbar button');
+        if (!btn) return;
+        e.preventDefault();
+        const wrap = btn.closest('.rich-editor-wrap');
+        const area = wrap.querySelector('.rich-editor-area');
+        area.focus();
+        const cmd = btn.dataset.cmd;
+        if (cmd === 'createLink') {
+            const url = prompt('Masukkan URL link:', 'https://');
+            if (url) document.execCommand('createLink', false, url);
+        } else if (cmd === 'formatBlock') {
+            document.execCommand('formatBlock', false, btn.dataset.value);
+        } else {
+            document.execCommand(cmd, false, null);
+        }
+    });
+});
+
+// -------------------------------------------------------------
 // AUTH UI
 // -------------------------------------------------------------
 function updateAuthUI() {
@@ -95,8 +161,12 @@ function openStepForm(stepId) {
         <label>Judul<input type="text" id="f_title" value="${isEdit ? escAttr(s.title) : ''}"></label>
         <label>Role Label (badge di card & modal)<input type="text" id="f_role" value="${isEdit ? escAttr(s.role_label) : '👤 '}"></label>
         <label>Ringkasan Singkat (tampil di card)<textarea id="f_summary" rows="2">${isEdit ? s.summary : ''}</textarea></label>
-        <label>Isi SOP Lengkap (boleh tag HTML, mis. &lt;strong&gt;)<textarea id="f_sop" rows="6">${isEdit ? s.sop_html : ''}</textarea></label>
-        <label>Script Komunikasi (boleh tag HTML)<textarea id="f_script" rows="6">${isEdit ? s.script_html : ''}</textarea></label>
+        <label>Isi SOP Lengkap
+            ${richEditorHTML('f_sop', isEdit ? s.sop_html : '', { placeholder: 'Tulis detail SOP di sini...' })}
+        </label>
+        <label>Script Komunikasi
+            ${richEditorHTML('f_script', isEdit ? s.script_html : '', { placeholder: 'Tulis contoh script komunikasi di sini...' })}
+        </label>
     `;
     document.getElementById('adminFormSaveBtn').onclick = () => saveStep(isEdit, isEdit ? s.id : null);
     openAdminForm();
@@ -110,8 +180,8 @@ async function saveStep(isEdit, existingId) {
         title: document.getElementById('f_title').value.trim(),
         role_label: document.getElementById('f_role').value.trim(),
         summary: document.getElementById('f_summary').value.trim(),
-        sop_html: document.getElementById('f_sop').value,
-        script_html: document.getElementById('f_script').value
+        sop_html: richEditorValue('f_sop'),
+        script_html: richEditorValue('f_script')
     };
     if (!payload.title) { alert('Judul wajib diisi.'); return; }
 
@@ -164,16 +234,22 @@ function openMaterialForm(materialId) {
         </label>
         <label>Kategori / Tab
             <select id="f_category">
-                ${Object.keys(CATEGORY_CONTAINER_IDS).map(c => `<option value="${c}" ${category === c ? 'selected' : ''}>${c}</option>`).join('')}
+                ${allCategories().map(c => `<option value="${c.id}" ${category === c.id ? 'selected' : ''}>${c.label}</option>`).join('')}
             </select>
         </label>
         <label>Urutan Tampil (angka)<input type="number" id="f_order" value="${isEdit ? m.item_order : nextOrder}"></label>
         <label>Judul<input type="text" id="f_title" value="${isEdit ? escAttr(m.title) : ''}"></label>
         <label>Role / Tag Label (tampil di card)<input type="text" id="f_role" value="${isEdit ? escAttr(m.role_label) : ''}"></label>
         <label>Ringkasan Singkat (tampil di card)<textarea id="f_summary" rows="2">${isEdit ? m.summary : ''}</textarea></label>
-        <label>Tujuan (boleh tag HTML)<textarea id="f_tujuan" rows="3">${isEdit ? m.tujuan_html : ''}</textarea></label>
-        <label>Isi Materi Lengkap (boleh tag HTML)<textarea id="f_content" rows="6">${isEdit ? m.content_html : ''}</textarea></label>
-        <label>Script / Contoh (boleh tag HTML, opsional)<textarea id="f_script" rows="4">${isEdit && m.script_html ? m.script_html : ''}</textarea></label>
+        <label>Tujuan
+            ${richEditorHTML('f_tujuan', isEdit ? m.tujuan_html : '', { placeholder: 'Tulis tujuan materi di sini...', small: true })}
+        </label>
+        <label>Isi Materi Lengkap
+            ${richEditorHTML('f_content', isEdit ? m.content_html : '', { placeholder: 'Tulis isi materi lengkap di sini...' })}
+        </label>
+        <label>Script / Contoh (opsional)
+            ${richEditorHTML('f_script', isEdit && m.script_html ? m.script_html : '', { placeholder: 'Tulis contoh / script (opsional)...', small: true })}
+        </label>
     `;
     document.getElementById('adminFormSaveBtn').onclick = () => saveMaterial(isEdit, isEdit ? m.id : null);
     openAdminForm();
@@ -187,9 +263,9 @@ async function saveMaterial(isEdit, existingId) {
         title: document.getElementById('f_title').value.trim(),
         role_label: document.getElementById('f_role').value.trim(),
         summary: document.getElementById('f_summary').value.trim(),
-        tujuan_html: document.getElementById('f_tujuan').value,
-        content_html: document.getElementById('f_content').value,
-        script_html: document.getElementById('f_script').value || null
+        tujuan_html: richEditorValue('f_tujuan'),
+        content_html: richEditorValue('f_content'),
+        script_html: richEditorValue('f_script') || null
     };
     if (!payload.id || !payload.title) { alert('ID dan Judul wajib diisi.'); return; }
 
@@ -212,6 +288,79 @@ async function deleteMaterial(materialId) {
     if (error) { alert('Gagal menghapus: ' + error.message); return; }
     closeMaterialModal();
     await loadAllData();
+}
+
+// -------------------------------------------------------------
+// CRUD: TAB / KATEGORI TAMBAHAN (dibuat admin)
+// -------------------------------------------------------------
+function slugifyCategoryId(text) {
+    return String(text || '')
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '')
+        .slice(0, 40);
+}
+
+function openCategoryForm() {
+    document.getElementById('adminFormTitle').textContent = '➕ Tambah Tab Baru';
+    document.getElementById('adminFormFields').innerHTML = `
+        <label>Nama Tab (contoh: "Training Barista")
+            <input type="text" id="f_cat_label" placeholder="Nama yang tampil pada tab">
+        </label>
+        <p style="font-size:12px; color:#6b7a8d; margin-top:-6px;">ID unik akan dibuat otomatis dari nama tab. Tab baru akan muncul di sebelah kiri tombol "➕ Tambah Tab".</p>
+    `;
+    document.getElementById('adminFormSaveBtn').onclick = saveCategory;
+    openAdminForm();
+}
+
+async function saveCategory() {
+    const label = document.getElementById('f_cat_label').value.trim();
+    if (!label) { alert('Nama tab wajib diisi.'); return; }
+    let id = slugifyCategoryId(label);
+    if (!id) { alert('Nama tab tidak valid, gunakan huruf/angka.'); return; }
+
+    const existingIds = BUILTIN_CATEGORIES.map(c => c.id).concat(customCategories.map(c => c.id));
+    if (existingIds.includes(id)) {
+        id = id + '_' + Date.now().toString(36).slice(-4);
+    }
+
+    const payload = {
+        id: id,
+        label: label,
+        item_order: customCategories.length + 1
+    };
+    const { error } = await sb.from('custom_categories').insert(payload);
+    if (error) {
+        alert('Gagal membuat tab baru: ' + error.message + '\n\nPastikan tabel "custom_categories" sudah dibuat di Supabase (lihat file migrasi yang disertakan).');
+        return;
+    }
+    closeAdminForm();
+    await loadAllData();
+}
+
+async function deleteCategory(categoryId) {
+    if (!confirm('Yakin hapus tab ini beserta seluruh materi di dalamnya? Tindakan tidak bisa dibatalkan.')) return;
+    // Hapus dulu semua materi di kategori ini, baru hapus kategorinya.
+    const { error: matError } = await sb.from('materials').delete().eq('category', categoryId);
+    if (matError) { alert('Gagal menghapus materi pada tab ini: ' + matError.message); return; }
+    const { error } = await sb.from('custom_categories').delete().eq('id', categoryId);
+    if (error) { alert('Gagal menghapus tab: ' + error.message); return; }
+    await loadAllData();
+}
+
+// -------------------------------------------------------------
+// AKSI EDIT/HAPUS SOAL LANGSUNG DARI HALAMAN KUIS (bukan dari
+// modal "Kelola Soal Kuis") — dipakai oleh icon di tiap soal.
+// -------------------------------------------------------------
+function editQuizQuestionFromQuiz(category, questionId) {
+    quizManageCategory = category;
+    openQuestionForm(questionId);
+}
+
+async function deleteQuizQuestionFromQuiz(category, questionId) {
+    quizManageCategory = category;
+    await deleteQuestion(questionId);
 }
 
 // -------------------------------------------------------------
@@ -265,7 +414,7 @@ function renderQuizManageList() {
                 <button title="Hapus" onclick="deleteQuestion('${q.id}')">🗑️</button>
             </div>
         </div>
-    `).join('') + `<button class="btn-admin-add" onclick="openQuestionForm(null)">+ Tambah Soal Baru</button>`;
+    `).join('') + `<button class="btn-admin-add admin-only" onclick="openQuestionForm(null)">+ Tambah Soal Baru</button>`;
 }
 
 function openQuestionForm(questionId) {

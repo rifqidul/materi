@@ -44,10 +44,13 @@ function setLoadingState(isLoading, errorMessage) {
 async function loadAllData() {
     setLoadingState(true);
 
-    const [stepsRes, materialsRes, quizRes] = await Promise.all([
+    const [stepsRes, materialsRes, quizRes, categoriesRes] = await Promise.all([
         sb.from('sop_steps').select('*').order('step_order', { ascending: true }),
         sb.from('materials').select('*').order('item_order', { ascending: true }),
-        sb.from('quiz_questions').select('*').order('question_order', { ascending: true })
+        sb.from('quiz_questions').select('*').order('question_order', { ascending: true }),
+        // Tabel custom_categories bersifat opsional (fitur "Tambah Tab").
+        // Jika tabel belum dibuat di Supabase, jangan sampai memblokir load data lain.
+        sb.from('custom_categories').select('*').order('item_order', { ascending: true })
     ]);
 
     const firstError = stepsRes.error || materialsRes.error || quizRes.error;
@@ -57,6 +60,15 @@ async function loadAllData() {
         return;
     }
 
+    // ---- KATEGORI / TAB CUSTOM (opsional) ----
+    if (categoriesRes.error) {
+        console.warn('Tabel custom_categories belum tersedia (fitur "Tambah Tab" nonaktif sampai migrasi dijalankan):', categoriesRes.error.message);
+        customCategories = [];
+    } else {
+        customCategories = categoriesRes.data || [];
+    }
+    if (typeof renderCustomTabsUI === 'function') renderCustomTabsUI();
+
     // ---- STEPS (Tab 1) ----
     stepList = stepsRes.data;
     stepData = {};
@@ -64,12 +76,14 @@ async function loadAllData() {
         stepData[s.id] = { title: s.title, role: s.role_label, sop: s.sop_html, script: s.script_html };
     });
 
-    // ---- MATERIALS (Tab 2-6) ----
+    // ---- MATERIALS (Tab 2-6 + tab custom) ----
     materialsByCategory = { operational: [], hospitality: [], foodsafety: [], cleaning: [], complaint: [] };
+    customCategories.forEach(c => { materialsByCategory[c.id] = []; });
     materialData = {};
     materialsRes.data.forEach(m => {
         materialData[m.id] = { title: m.title, role: m.role_label, tujuan: m.tujuan_html, content: m.content_html, script: m.script_html };
-        if (materialsByCategory[m.category]) materialsByCategory[m.category].push(m);
+        if (!materialsByCategory[m.category]) materialsByCategory[m.category] = [];
+        materialsByCategory[m.category].push(m);
     });
 
     // ---- QUIZ ----

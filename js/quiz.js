@@ -13,7 +13,7 @@
     // =============================================
     // FUNGSI RENDER KUIS DENGAN OPSI ACAK
     // =============================================
-    function renderQuizWithRandomOptions(containerId, questionsData) {
+    function renderQuizWithRandomOptions(containerId, questionsData, category) {
         const container = document.getElementById(containerId);
         if (!container) return;
         let html = '';
@@ -21,8 +21,15 @@
             const shuffledOptions = shuffleArray(q.options);
             const correctIndex = shuffledOptions.indexOf(q.options[q.answer]);
             const name = `${containerId}_q${index}`;
+            const adminIcons = `<div class="q-actions admin-only">
+                            <button type="button" class="q-icon-btn q-icon-edit" title="Edit Soal" onclick="editQuizQuestionFromQuiz('${category}', '${q.id}')">✏️</button>
+                            <button type="button" class="q-icon-btn q-icon-delete" title="Hapus Soal" onclick="deleteQuizQuestionFromQuiz('${category}', '${q.id}')">🗑️</button>
+                        </div>`;
             html += `<div class="question-block" id="qblock_${containerId}_${index}">
-                        <div class="q-number">Soal ${index + 1}</div>
+                        <div class="q-number-row">
+                            <div class="q-number">Soal ${index + 1}</div>
+                            ${adminIcons}
+                        </div>
                         <div class="q-text">${q.q}</div>
                         <div class="options">`;
             shuffledOptions.forEach((opt, optIndex) => {
@@ -34,15 +41,15 @@
             html += `</div></div>`;
             container.dataset[`correct_${index}`] = correctIndex;
         });
-        container.innerHTML = html;
+        container.innerHTML = html || '<p class="empty-state">Belum ada soal untuk kuis ini.</p>';
     }
 
     function renderAllQuizzes() {
-        renderQuizWithRandomOptions('questions1Container', sopQuestionsData);
-        renderQuizWithRandomOptions('questions2Container', hospitalityQuestionsData);
-        renderQuizWithRandomOptions('questions3Container', foodSafetyQuestionsData);
-        renderQuizWithRandomOptions('questions4Container', cleaningQuestionsData);
-        renderQuizWithRandomOptions('questions5Container', complaintQuestionsData);
+        renderQuizWithRandomOptions('questions1Container', sopQuestionsData, 'sop');
+        renderQuizWithRandomOptions('questions2Container', hospitalityQuestionsData, 'hospitality');
+        renderQuizWithRandomOptions('questions3Container', foodSafetyQuestionsData, 'foodsafety');
+        renderQuizWithRandomOptions('questions4Container', cleaningQuestionsData, 'cleaning');
+        renderQuizWithRandomOptions('questions5Container', complaintQuestionsData, 'complaint');
     }
 
     // =============================================
@@ -113,7 +120,12 @@
         const questions = questionsMap[quizNumber];
         if (!questions) return;
 
-        const containerId = `quiz${quizNumber}Container`;
+        // PENTING: soal & dataset "correct_N" dirender ke dalam kontainer
+        // "questionsNContainer" (lihat renderQuizWithRandomOptions), BUKAN
+        // ke kontainer luar "quizNContainer". Sebelumnya kode ini membaca
+        // dari kontainer luar sehingga nama radio & dataset tidak pernah
+        // cocok, akibatnya skor selalu 0 walaupun jawaban benar.
+        const containerId = `questions${quizNumber}Container`;
         const container = document.getElementById(containerId);
         const total = questions.length;
         let correct = 0;

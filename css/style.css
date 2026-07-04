@@ -410,6 +410,11 @@ body.is-admin .modal-admin-actions.admin-only { display: flex; }
     transition: background 0.2s ease;
 }
 .btn-admin-add:hover { background: #dcf3df; }
+.custom-tab-actions.admin-only { gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+body.is-admin .custom-tab-actions.admin-only { display: flex; }
+.custom-tab-actions .btn-admin-add { margin-bottom: 0; }
+.btn-admin-add-danger { background: #fdecec; color: #b3261e; border-color: #b3261e; }
+.btn-admin-add-danger:hover { background: #f9d3d1; }
 
 .modal-admin-actions {
     display: none; gap: 10px; margin-top: 20px;
@@ -483,4 +488,73 @@ body.is-admin .modal-admin-actions.admin-only { display: flex; }
 @media (max-width: 850px) {
     .header-doc { position: relative; }
     .btn-auth { align-self: flex-end; }
+}
+
+/* =============================================================
+   TAMBAHAN BARU: Tab tambahan admin, Rich Text Editor,
+   Icon aksi soal kuis, dan perbaikan stacking modal
+   ============================================================= */
+
+/* ---- Tombol "+ Tambah Tab" (style sama dengan main-tab-btn) ---- */
+.main-tab-btn.add-tab-btn {
+    color: #1c7a37;
+    border: 1px dashed #1c7a37;
+    border-radius: 10px;
+    background: #eef8ef;
+    margin: 4px 2px;
+    padding: 9px 16px;
+}
+.main-tab-btn.add-tab-btn:hover { background: #dcf3df; color: #145c2a; }
+
+/* ---- Stacking modal: form admin (Edit Soal/Materi/Step/Tab) selalu di atas modal lain ---- */
+#adminFormModal { z-index: 1100; }
+#adminFormModal.active { z-index: 1100; }
+
+/* ---- Icon aksi (edit/hapus) pada tiap soal kuis saat mengerjakan kuis ---- */
+.q-number-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.q-actions.admin-only { gap: 6px; flex-shrink: 0; }
+body.is-admin .q-actions.admin-only { display: flex; }
+.q-icon-btn {
+    background: #fff; border: 1px solid #dce3ec; border-radius: 8px;
+    width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 13px; padding: 0; transition: background 0.15s ease, border-color 0.15s ease;
+}
+.q-icon-btn:hover { background: #eef3f9; border-color: #c9a84c; }
+.q-icon-btn.q-icon-delete:hover { background: #fdecec; border-color: #dc3545; }
+
+/* =============================================================
+   RICH TEXT EDITOR (pengganti textarea HTML mentah)
+   ============================================================= */
+.rich-editor-wrap {
+    border: 1px solid #d7dfea; border-radius: 10px; overflow: hidden; background: #fff;
+}
+.rich-editor-wrap:focus-within { border-color: #c9a84c; box-shadow: 0 0 0 3px rgba(201,168,76,0.15); }
+.rich-editor-toolbar {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 3px;
+    background: #f8faff; border-bottom: 1px solid #e2e8f0; padding: 6px 8px;
+}
+.rich-editor-toolbar button {
+    background: transparent; border: 1px solid transparent; border-radius: 6px;
+    min-width: 28px; height: 28px; padding: 0 8px; font-size: 13px; font-weight: 700;
+    color: #1e2b3c; cursor: pointer; font-family: inherit; display: inline-flex; align-items: center; justify-content: center;
+    transition: background 0.15s ease;
+}
+.rich-editor-toolbar button:hover { background: #e2e8f0; }
+.rich-editor-toolbar button.active-format { background: #c9a84c; color: #0a1a2b; border-color: #b8962a; }
+.rich-editor-toolbar .sep { width: 1px; height: 20px; background: #dce3ec; margin: 0 4px; }
+.rich-editor-toolbar select {
+    font-family: inherit; font-size: 12px; font-weight: 600; color: #1e2b3c;
+    border: 1px solid #dce3ec; border-radius: 6px; padding: 4px 6px; background: #fff; cursor: pointer;
+}
+.rich-editor-area {
+    min-height: 130px; max-height: 360px; overflow-y: auto;
+    padding: 12px 14px; font-size: 14px; line-height: 1.7; color: #1e2b3c; outline: none;
+}
+.rich-editor-area.small { min-height: 80px; }
+.rich-editor-area p { margin-bottom: 8px; }
+.rich-editor-area ul, .rich-editor-area ol { padding-left: 22px; margin-bottom: 8px; }
+.rich-editor-area h4 { font-size: 15px; font-weight: 700; color: #0a1a2b; margin: 6px 0; }
+.rich-editor-area a { color: #b8962a; text-decoration: underline; }
+.rich-editor-area:empty:before {
+    content: attr(data-placeholder); color: #9aa8b6; pointer-events: none;
 }

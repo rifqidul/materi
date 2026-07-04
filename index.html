@@ -61,13 +61,15 @@
         </div>
 
         <!-- ===== TAB NAVIGASI ===== -->
-        <div class="main-tabs">
+        <div class="main-tabs" id="mainTabsContainer">
             <button class="main-tab-btn active" data-tab="tabSOP" onclick="switchMainTab('tabSOP')">1. SOP Alur</button>
             <button class="main-tab-btn" data-tab="tabOperational" onclick="switchMainTab('tabOperational')">2. SOP Operational</button>
             <button class="main-tab-btn" data-tab="tabHospitality" onclick="switchMainTab('tabHospitality')">3. Hospitality</button>
             <button class="main-tab-btn" data-tab="tabFoodSafety" onclick="switchMainTab('tabFoodSafety')">4. Food Safety</button>
             <button class="main-tab-btn" data-tab="tabCleaning" onclick="switchMainTab('tabCleaning')">5. Cleaning</button>
             <button class="main-tab-btn" data-tab="tabComplaint" onclick="switchMainTab('tabComplaint')">6. Komplain</button>
+            <!-- Tab tambahan buatan admin akan disisipkan di sini oleh js/render.js -->
+            <button class="main-tab-btn add-tab-btn admin-only" id="addTabBtn" onclick="openCategoryForm()">➕ Tambah Tab</button>
         </div>
 
         <!-- ========================================================== -->
@@ -159,6 +161,11 @@
             <button class="btn-admin-add admin-only" onclick="addMaterialInCategory('complaint')">+ Tambah Materi Baru</button>
             <div id="materialCardsContainer_complaint"></div>
         </div>
+
+        <!-- ========================================================== -->
+        <!-- TAB TAMBAHAN (dibuat admin) — dirender otomatis oleh js/render.js -->
+        <!-- ========================================================== -->
+        <div id="customTabContentsHost"></div>
 
         <!-- FOOTER -->
         <div class="footer-doc">
