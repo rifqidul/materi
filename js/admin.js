@@ -7,9 +7,7 @@ function escAttr(s) {
 }
 
 // -------------------------------------------------------------
-// RICH TEXT EDITOR (pengganti textarea HTML mentah)
-// Dipakai untuk field SOP / Materi yang butuh formatting
-// (bold, italic, list, dsb) tanpa mengharuskan admin menulis tag HTML.
+// RICH TEXT EDITOR
 // -------------------------------------------------------------
 function richEditorHTML(fieldId, initialHtml, opts) {
     opts = opts || {};
@@ -32,7 +30,7 @@ function richEditorHTML(fieldId, initialHtml, opts) {
                 <button type="button" data-cmd="createLink" title="Sisipkan Link">🔗</button>
                 <button type="button" data-cmd="removeFormat" title="Hapus Formatting">⨯</button>
             </div>
-            <div class="rich-editor-area${sizeClass}" id="${fieldId}_area" contenteditable="true" data-placeholder="${escAttr(placeholder)}">${content}</div>
+            <div class="rich-editor-area${sizeClass}" id="${fieldId}_area" contenteditable="true" tabindex="0" data-placeholder="${escAttr(placeholder)}">${content}</div>
         </div>
     `;
 }
@@ -41,25 +39,29 @@ function richEditorValue(fieldId) {
     const el = document.getElementById(fieldId + '_area');
     if (!el) return '';
     const html = el.innerHTML.trim();
-    // Anggap kosong kalau isinya cuma <br> atau tag kosong dari contenteditable
     if (!html || html === '<br>' || html === '<p><br></p>') return '';
     return html;
 }
 
-// Event delegation: tombol toolbar rich editor ada di dalam #adminFormFields
-// yang isinya dibangun ulang setiap kali form admin dibuka, jadi listener
-// dipasang sekali saja di parent yang selalu ada di DOM.
+// Event delegation untuk toolbar rich editor
 document.addEventListener('DOMContentLoaded', function () {
     const fieldsHost = document.getElementById('adminFormFields');
     if (!fieldsHost) return;
-    fieldsHost.addEventListener('mousedown', function (e) {
-        // mousedown (bukan click) supaya selection di editor tidak hilang duluan
+
+    fieldsHost.addEventListener('click', function (e) {
         const btn = e.target.closest('.rich-editor-toolbar button');
-        if (!btn) return;
+        if (!btn) {
+            const area = e.target.closest('.rich-editor-area');
+            if (area) { area.focus(); }
+            return;
+        }
         e.preventDefault();
+        e.stopPropagation();
+
         const wrap = btn.closest('.rich-editor-wrap');
         const area = wrap.querySelector('.rich-editor-area');
         area.focus();
+
         const cmd = btn.dataset.cmd;
         if (cmd === 'createLink') {
             const url = prompt('Masukkan URL link:', 'https://');
@@ -124,7 +126,7 @@ async function handleLogoutClick() {
 }
 
 // -------------------------------------------------------------
-// GENERIC ADMIN FORM MODAL (dipakai untuk Step, Materi, Soal)
+// GENERIC ADMIN FORM MODAL
 // -------------------------------------------------------------
 function openAdminForm() {
     document.getElementById('adminFormModal').classList.add('active');
@@ -341,7 +343,6 @@ async function saveCategory() {
 
 async function deleteCategory(categoryId) {
     if (!confirm('Yakin hapus tab ini beserta seluruh materi di dalamnya? Tindakan tidak bisa dibatalkan.')) return;
-    // Hapus dulu semua materi di kategori ini, baru hapus kategorinya.
     const { error: matError } = await sb.from('materials').delete().eq('category', categoryId);
     if (matError) { alert('Gagal menghapus materi pada tab ini: ' + matError.message); return; }
     const { error } = await sb.from('custom_categories').delete().eq('id', categoryId);
@@ -350,8 +351,103 @@ async function deleteCategory(categoryId) {
 }
 
 // -------------------------------------------------------------
-// AKSI EDIT/HAPUS SOAL LANGSUNG DARI HALAMAN KUIS (bukan dari
-// modal "Kelola Soal Kuis") — dipakai oleh icon di tiap soal.
+// CRUD: EDIT TAB CUSTOM
+// -------------------------------------------------------------
+function editCustomCategory(categoryId, currentLabel) {
+    document.getElementById('adminFormTitle').textContent = '✏️ Edit Tab';
+    document.getElementById('adminFormFields').innerHTML = `
+        <label>Nama Tab Baru
+            <input type="text" id="f_cat_label" value="${escAttr(currentLabel)}" placeholder="Nama yang tampil pada tab">
+        </label>
+        <input type="hidden" id="f_cat_id" value="${escAttr(categoryId)}">
+    `;
+    document.getElementById('adminFormSaveBtn').onclick = saveCustomCategoryEdit;
+    openAdminForm();
+}
+
+async function saveCustomCategoryEdit() {
+    const label = document.getElementById('f_cat_label').value.trim();
+    const id = document.getElementById('f_cat_id').value;
+    if (!label) { alert('Nama tab wajib diisi.'); return; }
+
+    const { error } = await sb.from('custom_categories').update({ label: label }).eq('id', id);
+    if (error) { alert('Gagal mengupdate tab: ' + error.message); return; }
+
+    closeAdminForm();
+    await loadAllData();
+}
+
+// -------------------------------------------------------------
+// CRUD: EDIT & HAPUS TAB BAWAAN (Builtin Categories)
+// -------------------------------------------------------------
+function editBuiltinCategory(tabId) {
+    const tabBtn = document.querySelector(`.main-tab-btn[data-tab="${tabId}"]`);
+    const currentLabel = tabBtn ? tabBtn.textContent.trim() : tabId;
+
+    document.getElementById('adminFormTitle').textContent = '✏️ Edit Tab';
+    document.getElementById('adminFormFields').innerHTML = `
+        <label>Nama Tab Baru
+            <input type="text" id="f_cat_label" value="${escAttr(currentLabel)}" placeholder="Nama yang tampil pada tab">
+        </label>
+        <input type="hidden" id="f_cat_tab_id" value="${escAttr(tabId)}">
+    `;
+    document.getElementById('adminFormSaveBtn').onclick = saveBuiltinCategoryEdit;
+    openAdminForm();
+}
+
+function saveBuiltinCategoryEdit() {
+    const label = document.getElementById('f_cat_label').value.trim();
+    const tabId = document.getElementById('f_cat_tab_id').value;
+    if (!label) { alert('Nama tab wajib diisi.'); return; }
+
+    const labels = JSON.parse(localStorage.getItem('nara_tab_labels') || '{}');
+    labels[tabId] = label;
+    localStorage.setItem('nara_tab_labels', JSON.stringify(labels));
+
+    applyTabLabels();
+    closeAdminForm();
+}
+
+function hideBuiltinCategory(tabId) {
+    if (!confirm('Yakin hapus tab ini? Tab akan disembunyikan dari tampilan.')) return;
+
+    const hidden = JSON.parse(localStorage.getItem('nara_hidden_tabs') || '[]');
+    if (!hidden.includes(tabId)) hidden.push(tabId);
+    localStorage.setItem('nara_hidden_tabs', JSON.stringify(hidden));
+
+    applyHiddenTabs();
+
+    const activeContent = document.querySelector('.main-tab-content.active');
+    if (activeContent && activeContent.id === tabId) {
+        const visibleBtn = document.querySelector('.main-tab-btn:not(.add-tab-btn):not([style*="display: none"])');
+        if (visibleBtn) visibleBtn.click();
+    }
+}
+
+function applyTabLabels() {
+    const labels = JSON.parse(localStorage.getItem('nara_tab_labels') || '{}');
+    for (const [tabId, label] of Object.entries(labels)) {
+        const tabBtn = document.querySelector(`.main-tab-btn[data-tab="${tabId}"]`);
+        if (tabBtn) tabBtn.textContent = label;
+
+        const content = document.getElementById(tabId);
+        if (content) {
+            const titleEl = content.querySelector('.section-title');
+            if (titleEl) titleEl.textContent = label.replace(/^\d+\.\s*/, '');
+        }
+    }
+}
+
+function applyHiddenTabs() {
+    const hidden = JSON.parse(localStorage.getItem('nara_hidden_tabs') || '[]');
+    hidden.forEach(tabId => {
+        const tabBtn = document.querySelector(`.main-tab-btn[data-tab="${tabId}"]`);
+        if (tabBtn) tabBtn.style.display = 'none';
+    });
+}
+
+// -------------------------------------------------------------
+// AKSI EDIT/HAPUS SOAL LANGSUNG DARI HALAMAN KUIS
 // -------------------------------------------------------------
 function editQuizQuestionFromQuiz(category, questionId) {
     quizManageCategory = category;

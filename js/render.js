@@ -82,6 +82,7 @@ function renderCustomTabsUI() {
             <div class="section-desc">Materi pada kategori ini. Klik pada card untuk melihat materi lengkap.</div>
             <div class="admin-only custom-tab-actions">
                 <button class="btn-admin-add" onclick="addMaterialInCategory('${cat.id}')">+ Tambah Materi Baru</button>
+                <button class="btn-admin-add" onclick="editCustomCategory('${cat.id}', '${escAttr(cat.label)}')">✏️ Edit Tab</button>
                 <button class="btn-admin-add btn-admin-add-danger" onclick="deleteCategory('${cat.id}')">🗑️ Hapus Tab Ini</button>
             </div>
             <div id="${categoryContainerId(cat.id)}"></div>

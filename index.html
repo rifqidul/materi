@@ -87,6 +87,11 @@
             <div class="section-title">Alur Layanan Operasional Nara</div>
             <div class="section-desc">Tahapan berikut adalah standar wajib yang membentuk pengalaman pelanggan Nara dari pintu masuk hingga meja kembali siap pakai — <strong>konsistensi di setiap tahap</strong> adalah kunci kualitas layanan kita. Klik pada card untuk melihat SOP lengkap dan script komunikasi.</div>
 
+            <div class="admin-only custom-tab-actions">
+                <button class="btn-admin-add" onclick="editBuiltinCategory('tabSOP')">✏️ Edit Tab</button>
+                <button class="btn-admin-add btn-admin-add-danger" onclick="hideBuiltinCategory('tabSOP')">🗑️ Hapus Tab Ini</button>
+            </div>
+
             <button class="btn-admin-add admin-only" onclick="openStepForm(null)">+ Tambah SOP Step Baru</button>
 
             <div id="stepCardsContainer">
@@ -118,6 +123,12 @@
         <div class="main-tab-content" id="tabOperational">
             <div class="section-title">SOP Operasional — Tugas &amp; Tanggung Jawab</div>
             <div class="section-desc">Uraian tugas dan tanggung jawab per posisi FOH dan Produksi. Klik pada card untuk melihat materi lengkap.</div>
+
+            <div class="admin-only custom-tab-actions">
+                <button class="btn-admin-add" onclick="editBuiltinCategory('tabOperational')">✏️ Edit Tab</button>
+                <button class="btn-admin-add btn-admin-add-danger" onclick="hideBuiltinCategory('tabOperational')">🗑️ Hapus Tab Ini</button>
+            </div>
+
             <button class="btn-admin-add admin-only" onclick="addMaterialInCategory('operational')">+ Tambah Materi Baru</button>
             <div id="materialCardsContainer_operational"></div>
         </div>
@@ -128,6 +139,12 @@
         <div class="main-tab-content" id="tabHospitality">
             <div class="section-title">Dasar-Dasar Hospitality Nara</div>
             <div class="section-desc">Fondasi sikap dan perilaku yang membedakan pelayanan biasa dengan pengalaman berkelas khas Nara. Klik pada card untuk melihat materi lengkap.</div>
+
+            <div class="admin-only custom-tab-actions">
+                <button class="btn-admin-add" onclick="editBuiltinCategory('tabHospitality')">✏️ Edit Tab</button>
+                <button class="btn-admin-add btn-admin-add-danger" onclick="hideBuiltinCategory('tabHospitality')">🗑️ Hapus Tab Ini</button>
+            </div>
+
             <button class="btn-admin-add admin-only" onclick="addMaterialInCategory('hospitality')">+ Tambah Materi Baru</button>
             <div id="materialCardsContainer_hospitality"></div>
         </div>
@@ -138,6 +155,12 @@
         <div class="main-tab-content" id="tabFoodSafety">
             <div class="section-title">Food Safety Nara</div>
             <div class="section-desc">Standar keamanan pangan yang wajib dikuasai seluruh crew FOH. Klik pada card untuk melihat materi lengkap.</div>
+
+            <div class="admin-only custom-tab-actions">
+                <button class="btn-admin-add" onclick="editBuiltinCategory('tabFoodSafety')">✏️ Edit Tab</button>
+                <button class="btn-admin-add btn-admin-add-danger" onclick="hideBuiltinCategory('tabFoodSafety')">🗑️ Hapus Tab Ini</button>
+            </div>
+
             <button class="btn-admin-add admin-only" onclick="addMaterialInCategory('foodsafety')">+ Tambah Materi Baru</button>
             <div id="materialCardsContainer_foodsafety"></div>
         </div>
@@ -148,6 +171,12 @@
         <div class="main-tab-content" id="tabCleaning">
             <div class="section-title">Cleaning &amp; Kebersihan Area</div>
             <div class="section-desc">Standar kebersihan setiap area Nara. Klik pada card untuk melihat materi lengkap.</div>
+
+            <div class="admin-only custom-tab-actions">
+                <button class="btn-admin-add" onclick="editBuiltinCategory('tabCleaning')">✏️ Edit Tab</button>
+                <button class="btn-admin-add btn-admin-add-danger" onclick="hideBuiltinCategory('tabCleaning')">🗑️ Hapus Tab Ini</button>
+            </div>
+
             <button class="btn-admin-add admin-only" onclick="addMaterialInCategory('cleaning')">+ Tambah Materi Baru</button>
             <div id="materialCardsContainer_cleaning"></div>
         </div>
@@ -158,6 +187,12 @@
         <div class="main-tab-content" id="tabComplaint">
             <div class="section-title">Penanganan Komplain &amp; Service Recovery</div>
             <div class="section-desc">Kerangka kerja dan referensi praktis penanganan keluhan pelanggan. Klik pada card untuk melihat materi lengkap.</div>
+
+            <div class="admin-only custom-tab-actions">
+                <button class="btn-admin-add" onclick="editBuiltinCategory('tabComplaint')">✏️ Edit Tab</button>
+                <button class="btn-admin-add btn-admin-add-danger" onclick="hideBuiltinCategory('tabComplaint')">🗑️ Hapus Tab Ini</button>
+            </div>
+
             <button class="btn-admin-add admin-only" onclick="addMaterialInCategory('complaint')">+ Tambah Materi Baru</button>
             <div id="materialCardsContainer_complaint"></div>
         </div>

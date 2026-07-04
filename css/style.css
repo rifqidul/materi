@@ -558,3 +558,36 @@ body.is-admin .q-actions.admin-only { display: flex; }
 .rich-editor-area:empty:before {
     content: attr(data-placeholder); color: #9aa8b6; pointer-events: none;
 }
+
+/* =============================================================
+   PERBAIKAN: Admin-only visibility & Rich Editor
+   ============================================================= */
+
+/* Fix: semua elemen admin-only WAJIB hidden saat belum login */
+body:not(.is-admin) .admin-only,
+body:not(.is-admin) .modal-admin-actions.admin-only,
+body:not(.is-admin) .custom-tab-actions.admin-only,
+body:not(.is-admin) .q-actions.admin-only {
+    display: none !important;
+}
+
+/* Saat login admin, kembalikan display sesuai kebutuhan masing-masing */
+body.is-admin .admin-only {
+    display: inline-flex;
+}
+body.is-admin .modal-admin-actions.admin-only,
+body.is-admin .custom-tab-actions.admin-only,
+body.is-admin .q-actions.admin-only {
+    display: flex;
+}
+
+/* Fix: Rich Editor area agar bisa diklik & menerima fokus */
+.rich-editor-area {
+    cursor: text;
+    position: relative;
+    z-index: 1;
+}
+.rich-editor-wrap.is-focused {
+    border-color: #c9a84c;
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+}
